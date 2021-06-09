@@ -25,8 +25,8 @@ public class pegou : MonoBehaviour
             if (player.gameObject.tag == "Player")
             {
 
-                Debug.Log("quase");
-                anim.SetTrigger("aparece");
+                
+                anim.SetTrigger("volta");
                 //peixe.SetActive(true);
                 // peixe.anim.SetBool("olhar", false);
             }

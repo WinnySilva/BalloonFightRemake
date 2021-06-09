@@ -12,12 +12,16 @@ public class playermove : MonoBehaviour
     public float gravityValue = -9.81f;
     public Animator anim;
     public Collider player;
+    public GameObject balloon;
+    public GameObject balloon2;
+    private Rigidbody m_Rigidbody;
     private void Start()
     {
         controller = gameObject.AddComponent<CharacterController>();
 
-
+        m_Rigidbody = GetComponent<Rigidbody>();
     }
+
 
     void Update()
     {
@@ -25,7 +29,8 @@ public class playermove : MonoBehaviour
         moviment();
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-        OnTriggerEnter(player);
+        OnTriggerStay(player);
+        LostBallon();
     }   
 
         void stopanim()
@@ -53,20 +58,22 @@ public class playermove : MonoBehaviour
 
             }
 
-            // Changes the height position of the player..
-            if (Input.GetButtonDown("Jump"))
+        // Changes the height position of the player..
+        if (Input.GetButtonDown("Jump"))
             {
-                playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-                if (groundedPlayer == true)
+
+        //m_Rigidbody.AddForce(playerVelocity.y * jumpHeight, ForceMode.Force);
+             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3f * gravityValue);
+            if (groundedPlayer == true)
                 {
 
                     anim.SetTrigger("jump");
                 }
                 if (groundedPlayer == false)
                 {
-
-                    anim.SetTrigger("jump");
                     anim.SetBool("grouded", true);
+                    anim.SetTrigger("jump");
+                  
                 }
 
             }
@@ -78,7 +85,7 @@ public class playermove : MonoBehaviour
         }
 
 
-        void OnTriggerEnter(Collider player)
+        void OnTriggerStay(Collider player)
         {
             if (player.gameObject.tag == "ground")
             {
@@ -86,7 +93,22 @@ public class playermove : MonoBehaviour
             }
         }
 
-    
+    void LostBallon()
+    {
+        if (PlayerBallon.Instance.cair < 2)
+        {
+            balloon.SetActive(false);
+
+        }
+
+        if (PlayerBallon.Instance.cair < 1)
+        {
+            balloon2.SetActive(false);
+            gravityValue = -10000;
+            //player.SetActive(false);
+        }
+
+    }
 }
 
 

@@ -9,6 +9,7 @@ public class Pegaplayer : MonoBehaviour
     public GameObject alvo;
     public Animator anim;
     public Collider intercept;
+  
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,7 @@ public class Pegaplayer : MonoBehaviour
             {
             
 
-            anim.SetTrigger("aparece");
+            anim.SetBool("aparece",true);
                     //peixe.SetActive(true);
             // peixe.anim.SetBool("olhar", false);
         }
@@ -43,16 +44,16 @@ public class Pegaplayer : MonoBehaviour
 
         if (player.gameObject.tag == "Player")
         {
-            
 
-            anim.SetTrigger("volta");
+
+            anim.SetBool("aparece", false);
             //peixe.SetActive(true);
             // peixe.anim.SetBool("olhar", false);
         }
 
     }
 
-
+  
 
 
 }

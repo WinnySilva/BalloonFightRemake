@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 
 
-public class TitleScreenController : MonoBehaviour
+public class LobbyController : MonoBehaviour
 {
 
     public TMP_InputField sala;

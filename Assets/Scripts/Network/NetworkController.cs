@@ -1,6 +1,7 @@
 ﻿using MLAPI;
 using MLAPI.SceneManagement;
 using MLAPI.Transports.PhotonRealtime;
+using Photon.Realtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,23 +16,26 @@ public class NetworkController : MonoBehaviour
     public static Action<ulong> ClientDisconected;
     public static Action ServerStarted;
     public bool EhLocal { get; private set; }
+public PhotonRealtimeTransport transport;
     public Dictionary<ulong, string> Jogadores { get; private set; }
-    private PhotonRealtimeTransport transport;
+    
 
     // Start is called before the first frame update
     void Awake()
-    {
+    { 
+        Instance = this;
         Jogadores = new Dictionary<ulong, string>();
-        transport = GetComponent<PhotonRealtimeTransport>();
+       
     }
-
-
+       
     public void IniciarHost(string nomeSala, string nickname)
     {
         NetworkManager.Singleton.OnServerStarted += OnServerStarted;
 
+    //    PlayerNet cliente = new LoadBalancingClient();
+
         transport.RoomName = nomeSala;
-        transport.Client.NickName = nickname;
+     //   transport.Client.NickName = nickname;
 
         NetworkManager.Singleton.StartHost();
         NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnectedCallback;
@@ -41,7 +45,7 @@ public class NetworkController : MonoBehaviour
     public void IniciarClient(string nomeSala, string nickname)
     {
         transport.RoomName = nomeSala;
-        transport.Client.NickName = nickname;
+    //    transport.OnPlayerEnteredRoom.
 
         NetworkManager.Singleton.StartClient();
 

@@ -8,8 +8,8 @@ public class Pegaplayer : MonoBehaviour
     public GameObject peixe;
     public Transform alvo;
     public Animator anim;
-    public Collider intercept;
-    private bool caca;
+    
+    public bool caca;
 
 
     // Start is called before the first frame update
@@ -22,8 +22,7 @@ public class Pegaplayer : MonoBehaviour
     void Update()
     {
 
-        OnTriggerEnter(intercept);
-        OnTriggerExit(intercept);
+       
         if (caca == true) {
 
             hunt();
@@ -31,38 +30,26 @@ public class Pegaplayer : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider player)
-    {
-
-        if (player.gameObject.tag == "Player")
-        {
-
-
-            anim.SetBool("aparece", true);
-            alvo = player.transform;
-            //peixe.SetActive(true);
-            // peixe.anim.SetBool("olhar", false);
-
-            caca = true;
-        }
+    
+        
+        
 
       
 
 
 
 
-        if (player.gameObject.tag == "Enemy")
-            {
+        
 
 
-                anim.SetBool("aparece", true);
+        
           
-            //peixe.SetActive(true);
-            // peixe.anim.SetBool("olhar", false);
+        
+        
 
-        }
+        
 
-        }
+        
     
         void MoveCharacter(Vector3 frameMovement)
         {
@@ -103,15 +90,19 @@ public class Pegaplayer : MonoBehaviour
         Vector3 direction = alvo.position - transform.position;
 
         direction.y = 0;
+        
         float distanceToTarget = direction.magnitude;
-
+        
+        
         direction.Normalize();
 
+       
+               
+
+      
 
 
-        Debug.Log(distanceToTarget);
 
-     
 
 
 

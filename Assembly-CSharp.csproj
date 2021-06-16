@@ -58,11 +58,15 @@
   <ItemGroup>
     <Compile Include="Assets\enemy\enemyscrips\enemy.cs" />
     <Compile Include="Assets\enemy\fish\Pegaplayer.cs" />
+    <Compile Include="Assets\enemy\fish\localPlayer.cs" />
     <Compile Include="Assets\Player\Scripts PLayer\playermove.cs" />
     <Compile Include="Assets\Player\Scripts PLayer\PlayerBallon.cs" />
     <Compile Include="Assets\enemy\enemyscrips\paraquedas.cs" />
     <Compile Include="Assets\enemy\enemyscrips\ballon.cs" />
     <Compile Include="Assets\enemy\fish\pegou.cs" />
+    <Compile Include="Assets\fase\script\score.cs" />
+    <Compile Include="Assets\fase\script\TopScores.cs" />
+    <Compile Include="Assets\enemy\enemyscrips\bolha.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

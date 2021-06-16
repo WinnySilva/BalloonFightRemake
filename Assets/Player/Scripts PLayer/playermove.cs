@@ -15,6 +15,7 @@ public class playermove : MonoBehaviour
     public GameObject balloon;
     public GameObject balloon2;
     private Rigidbody m_Rigidbody;
+    public int Score;
     private void Start()
     {
         controller = gameObject.AddComponent<CharacterController>();
@@ -109,6 +110,11 @@ public class playermove : MonoBehaviour
         }
 
     }
+
+
+
+
+
 }
 
 

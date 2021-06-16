@@ -8,6 +8,7 @@ public class paraquedas : MonoBehaviour
     public Collider act;
     public static bool cair;
     public GameObject parashut;
+    public int pontuacao;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,12 +29,12 @@ public class paraquedas : MonoBehaviour
 
         if (player.gameObject.tag == "Player")
         {
-            {
-                parashut.SetActive(false);
+            player.GetComponent<playermove>().Score = +pontuacao;
+            parashut.SetActive(false);
 
                 cair = true;
                 
-            }
+            
 
         }
 

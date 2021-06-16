@@ -8,6 +8,7 @@ public class ballon : MonoBehaviour
     public Collider act;
     public static  bool cair;
     public GameObject parashut;
+    public int pontuacao;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,12 +29,12 @@ public class ballon : MonoBehaviour
 
         if (player.gameObject.tag == "Player")
         {
-            {
-                balloon.SetActive(false);
+            player.GetComponent<playermove>().Score = +pontuacao;
+            balloon.SetActive(false);
 
                 cair = true;
                 parashut.SetActive(true);
-            }
+            
 
         }
 

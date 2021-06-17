@@ -16,36 +16,42 @@ public class NetworkController : MonoBehaviour
     public static Action<ulong> ClientDisconected;
     public static Action ServerStarted;
     public bool EhLocal { get; private set; }
-public PhotonRealtimeTransport transport;
+    public PhotonRealtimeTransport transport;
     public Dictionary<ulong, string> Jogadores { get; private set; }
-    
+
 
     // Start is called before the first frame update
     void Awake()
-    { 
+    {
         Instance = this;
         Jogadores = new Dictionary<ulong, string>();
-       
+
     }
-       
-    public void IniciarHost(string nomeSala, string nickname)
+
+    void Start()
     {
         NetworkManager.Singleton.OnServerStarted += OnServerStarted;
+        NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnectedCallback;
+    }
 
-    //    PlayerNet cliente = new LoadBalancingClient();
+    public void IniciarHost(string nomeSala, string nickname)
+    {
+
+
+        //    PlayerNet cliente = new LoadBalancingClient();
 
         transport.RoomName = nomeSala;
-     //   transport.Client.NickName = nickname;
+        //   transport.Client.NickName = nickname;
 
         NetworkManager.Singleton.StartHost();
-        NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnectedCallback;
+
 
     }
 
     public void IniciarClient(string nomeSala, string nickname)
     {
         transport.RoomName = nomeSala;
-    //    transport.OnPlayerEnteredRoom.
+        //    transport.OnPlayerEnteredRoom.
 
         NetworkManager.Singleton.StartClient();
 

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class NetworkController : MonoBehaviour
+public class NetworkController : NetworkBehaviour
 {
 
     public static NetworkController Instance { get; private set; }
@@ -90,7 +90,10 @@ public class NetworkController : MonoBehaviour
 
     public void SwitchScene(string mySceneName)
     {
-        NetworkSceneManager.SwitchScene(mySceneName);
+        if (NetworkManager.Singleton.IsServer)
+        {
+            NetworkSceneManager.SwitchScene(mySceneName);
+        }
     }
 
     public int ClientesConectados()

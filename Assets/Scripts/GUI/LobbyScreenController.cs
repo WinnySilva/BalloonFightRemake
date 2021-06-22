@@ -11,12 +11,14 @@ public class LobbyScreenController : MonoBehaviour
     public TMP_InputField nickname;
     public GameObject iniciarPartida;
     public GameObject aguardeMsg;
+    public GameObject infoConexao;
 
     void Start()
     {
         NetworkController.ServerStarted += ServerStarted;
         iniciarPartida.SetActive(false);
         aguardeMsg.SetActive(false);
+        infoConexao.SetActive(true);
 
     }
 
@@ -42,14 +44,23 @@ public class LobbyScreenController : MonoBehaviour
         
     public void ComecarJogo()
     {
-        NetworkController.Instance.SwitchScene("SampleSceneNetwork");     
         aguardeMsg.SetActive(true);
+        NetworkController.Instance.SwitchScene("SampleSceneNetwork");     
+       
+    }
+
+    public void ConectadoComoCliente()
+    {
+        iniciarPartida.SetActive(false);
+        aguardeMsg.SetActive(true);
+        infoConexao.SetActive(false);
     }
 
     private void ServerStarted()
     {
         iniciarPartida.SetActive(true);
         aguardeMsg.SetActive(false);
+        infoConexao.SetActive(false);
     }
 
 

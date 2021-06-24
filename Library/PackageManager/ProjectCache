@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637587088329371800
-    m_Hash: 3912308739
+      ticks: 637600007553232500
+    m_Hash: 3700075921
   m_LockFileStatus:
     m_FilePath: E:/bkp/GitHub/BalloonFightRemake/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637587088329626442
-    m_Hash: 3628468537
+      ticks: 637600007553502616
+    m_Hash: 970375621
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -64,6 +64,56 @@ m_PackageAssets:
         type: 
         url: 
         revision: 
+        path: 
+    - packageId: com.unity.ai.navigation.components@https://github.com/Unity-Technologies/NavMeshComponents.git#package
+      testable: 0
+      isDirectDependency: 1
+      version: 0.1.0-preview.2
+      source: 5
+      resolvedPath: E:\bkp\GitHub\BalloonFightRemake\Library\PackageCache\com.unity.ai.navigation.components@0fc6f532e4
+      assetPath: Packages/com.unity.ai.navigation.components
+      name: com.unity.ai.navigation.components
+      displayName: NavMesh Components
+      author:
+        name: Unity Technologies
+        email: 
+        url: 
+      category: 
+      type: 
+      description: High-level NavMesh components for building and using NavMeshes
+        at runtime and at edit time.
+      status: 4
+      errors: []
+      versions:
+        all: []
+        compatible: []
+        verified: 
+      dependencies:
+      - name: com.unity.modules.ai
+        version: 1.0.0
+      resolvedDependencies:
+      - name: com.unity.modules.ai
+        version: 1.0.0
+      keywords: []
+      registry:
+        id: 
+        name: 
+        url: 
+        scopes: []
+        isDefault: 0
+        capabilities: 0
+      hasRegistry: 0
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 0
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: https://github.com/Unity-Technologies/NavMeshComponents.git
+        revision: 0c64cbdedc3056a332d85c141df89c606fec9e8c
         path: 
     - packageId: com.unity.collab-proxy@1.5.7
       testable: 0
@@ -799,10 +849,12 @@ m_PackageAssets:
         - 1.1.22
         - 1.1.24
         - 1.1.26
+        - 1.1.27
         compatible:
         - 1.1.24
         - 1.1.26
-        verified: 1.1.26
+        - 1.1.27
+        verified: 1.1.27
       dependencies:
       - name: com.unity.ext.nunit
         version: 1.0.6

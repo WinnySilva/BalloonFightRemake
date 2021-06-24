@@ -56,17 +56,18 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\fase\script\score.cs" />
     <Compile Include="Assets\enemy\enemyscrips\enemy.cs" />
     <Compile Include="Assets\enemy\fish\Pegaplayer.cs" />
+    <Compile Include="Assets\fase\script\TopScores.cs" />
     <Compile Include="Assets\enemy\fish\localPlayer.cs" />
+    <Compile Include="Assets\enemy\enemyscrips\bolha.cs" />
     <Compile Include="Assets\Player\Scripts PLayer\playermove.cs" />
     <Compile Include="Assets\Player\Scripts PLayer\PlayerBallon.cs" />
     <Compile Include="Assets\enemy\enemyscrips\paraquedas.cs" />
     <Compile Include="Assets\enemy\enemyscrips\ballon.cs" />
     <Compile Include="Assets\enemy\fish\pegou.cs" />
-    <Compile Include="Assets\fase\script\score.cs" />
-    <Compile Include="Assets\fase\script\TopScores.cs" />
-    <Compile Include="Assets\enemy\enemyscrips\bolha.cs" />
+    <Compile Include="Assets\enemy\fish\Enemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -722,6 +723,12 @@
     </Reference>
     <Reference Include="Unity.SysrootPackage.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.SysrootPackage.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="NavMeshComponents">
+      <HintPath>Library\ScriptAssemblies\NavMeshComponents.dll</HintPath>
+    </Reference>
+    <Reference Include="NavMeshComponentsEditor">
+      <HintPath>Library\ScriptAssemblies\NavMeshComponentsEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

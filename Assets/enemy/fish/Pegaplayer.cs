@@ -8,7 +8,7 @@ public class Pegaplayer : MonoBehaviour
     public GameObject peixe;
     public Transform alvo;
     public Animator anim;
-    
+    public Transform forwardDirection;  //Anexe aqui a sua MainCamera
     public bool caca;
 
 
@@ -96,12 +96,18 @@ public class Pegaplayer : MonoBehaviour
         
         direction.Normalize();
 
-       
-               
-
-      
+        
 
 
+        if (direction.x > 0)
+        {
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x,  -280f, transform.eulerAngles.z);
+        }
+        if (direction.x < 0)
+        {
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, 280f , transform.eulerAngles.z);
+        }
+    
 
 
 
@@ -110,7 +116,10 @@ public class Pegaplayer : MonoBehaviour
 
 
 
-        float distanceWantsToMoveThisFrame = 10000f * Time.deltaTime;
+
+
+
+float distanceWantsToMoveThisFrame = 10000f * Time.deltaTime;
         float actualMovementThisFrame = Mathf.Min(Mathf.Abs(distanceToTarget - 1), distanceWantsToMoveThisFrame);
 
         MoveCharacter(actualMovementThisFrame * direction);

@@ -30,6 +30,23 @@ CapsuleCollider:
   m_Height: 44.11209
   m_Direction: 1
   m_Center: {x: -0.000000014498362, y: 18.433372, z: 3.8157406}
+--- !u!114 &-3471975659957035598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941389775560118777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NetworkInstanceId: 0
+  PrefabHash: 17184372099838516876
+  PrefabHashGenerator: T-pose Variant
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
 --- !u!114 &319554575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,7 +64,7 @@ MonoBehaviour:
   gravityValue: -150
   anim: {fileID: 5141650412983259449}
   player: {fileID: 319554578}
---- !u!114 &1904143891
+--- !u!114 &4563843079636583767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,14 +73,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1941389775560118777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 3dd040b02e668bb4e8e11e58891f5f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NetworkInstanceId: 0
-  PrefabHash: 17184372099838516876
-  PrefabHashGenerator: T-pose Variant
-  AlwaysReplicateAsRoot: 0
-  DontDestroyWithOwner: 0
 --- !u!136 &730143046
 CapsuleCollider:
   m_ObjectHideFlags: 0

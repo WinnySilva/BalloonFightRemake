@@ -33,8 +33,9 @@ public class paraquedas : MonoBehaviour
             parashut.SetActive(false);
 
                 cair = true;
-                
-            
+            gameObject.GetComponent<enemy>().gravityValue = -150; 
+
+
 
         }
 

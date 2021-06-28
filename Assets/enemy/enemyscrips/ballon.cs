@@ -34,12 +34,19 @@ public class ballon : MonoBehaviour
         {
             player.GetComponent<playermove>().Score = +pontuacao;
             balloon.SetActive(false);
-           // Navagent.GetComponent<NavMeshAgent>().enabled = false;
-            //gameObject.GetComponent<enemy>().caca = false;
+            Navagent.GetComponent<NavMeshAgent>().enabled = false;
+            gameObject.GetComponent<enemy>().caca = false;
+            gameObject.GetComponent<CharacterController>().enabled =true;
+         
             cair = true;
-                parashut.SetActive(true);
-            gameObject.GetComponent<enemy>().alvo = ground0;
+            gameObject.GetComponent<enemy>().gravityValue = -9.81f;
 
+
+
+
+
+            parashut.SetActive(true);
+            
 
 
 

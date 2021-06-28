@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using MLAPI;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -16,9 +17,11 @@ public class LobbyScreenController : MonoBehaviour
     void Start()
     {
         NetworkController.ServerStarted += ServerStarted;
+        NetworkController.ClientConected += ConectadoComoCliente;
         iniciarPartida.SetActive(false);
         aguardeMsg.SetActive(false);
         infoConexao.SetActive(true);
+
 
     }
 
@@ -38,22 +41,30 @@ public class LobbyScreenController : MonoBehaviour
     {
         string sala = this.sala.text;
         string nickname = this.nickname.text;
-        
+
         NetworkController.Instance.IniciarClient(sala, nickname);
     }
-        
+
     public void ComecarJogo()
     {
         aguardeMsg.SetActive(true);
-        NetworkController.Instance.SwitchScene("SampleSceneNetwork");     
-       
+        NetworkController.Instance.SwitchScene("SampleScene_net");
+
     }
 
-    public void ConectadoComoCliente()
+    public void ConectadoComoCliente(ulong id)
     {
-        iniciarPartida.SetActive(false);
+
         aguardeMsg.SetActive(true);
         infoConexao.SetActive(false);
+        if (NetworkManager.Singleton.IsHost)
+        {
+            iniciarPartida.SetActive(true);
+        }
+        else
+        {
+            iniciarPartida.SetActive(false);
+        }
     }
 
     private void ServerStarted()

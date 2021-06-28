@@ -56,90 +56,90 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\InternalMessageHandler.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\NetworkVariable\NetworkVariable.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\Pooled\PooledNetworkReader.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Core\NetworkManager.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\NetworkVariable\Collections\NetworkSet.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\ProfilerStat.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Spawning\NetworkSpawnManager.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\RpcBatcher.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\InternalMessageSender.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\RpcAttributes.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\MemoryStructures\UIntFloat.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\Tasks\SocketTask.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Hashing\HashCode.cs" />
     <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\Pooled\PooledNetworkWriter.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\RpcQueue\RpcQueueHistoryFrame.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\MultiplexTransportAdapter.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\UNET\UNetChannel.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Exceptions\VisibilityChangeException.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\Pooled\NetworkBufferPool.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\ITransportProfilerData.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\Buffering\PreBufferPreset.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\UNET\RelayTransport.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\AssemblyInfo.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\ProfilerCounterValue.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\TransportChannel.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Core\NetworkBehaviour.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\ProfilerStatManager.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\Pooled\NetworkWriterPool.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\AutoNetworkSerializable.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\RpcAttributes.cs" />
     <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\Arithmetic.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\NetworkVariable\Collections\NetworkDictionary.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\NetworkDelivery.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\UNET\UNetChannel.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\NetworkBuffer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\INetworkSerializable.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Exceptions\NetworkConfigurationException.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\InternalMessageHandler.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Core\NetworkBehaviour.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Connection\PendingClient.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\PerformanceTickData.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\UNET\RelayTransport.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\SerializationManager.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Exceptions\NotServerException.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\InternalMessageSender.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\ITransportProfilerData.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\TransportChannel.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Logging\LogLevel.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\NetworkVariable\NetworkVariableSettings.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\NetworkVariable\NetworkVariable.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\NetworkReader.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\NetworkVariable\Collections\NetworkList.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\NetworkWriter.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\NetworkTransport.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\MultiplexTransportAdapter.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\NetworkVariable\INetworkVariable.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\NetworkProfiler.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\ProfilerStatManager.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\SceneManagement\SceneSwitchProgress.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\NetworkSerializer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\Buffering\PreBufferPreset.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\ProfilerCounterValue.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Configuration\HashSize.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\AssemblyInfo.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Core\NetworkObject.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\MemoryStructures\ByteBool.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\NetworkEvent.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\NetworkVariable\Collections\NetworkSet.cs" />
     <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Core\NetworkUpdateLoop.cs" />
     <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\ProfilerConstants.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\RpcQueue\RpcQueueProcessor.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\NetworkReader.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\UNET\UNetTransport.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\NetworkVariable\NetworkVariablePermission.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Logging\LogLevel.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\RpcQueue\RpcQueueContainer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\MemoryStructures\UIntFloat.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\RpcQueue\RpcQueueHistoryFrame.cs" />
     <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Configuration\NetworkPrefab.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\NetworkVariable\Collections\NetworkList.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\Pooled\NetworkReaderPool.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Reflection\TypeExtensions.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\NetworkVariable\INetworkVariable.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Collections\FixedQueue.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\RpcBatcher.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\RpcQueue\RpcQueueProcessor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\ProfilerCounterUtility.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Hashing\HashCode.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\RpcParams.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Logging\NetworkLog.cs" />
     <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\MessagePacker.cs" />
     <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\PerformanceDataManager.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\ProfilerCountersInfo.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Core\NetworkObject.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\ProfilerCounterUtility.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\NetworkWriter.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\SceneManagement\NetworkSceneManager.cs" />
     <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Exceptions\NotListeningException.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\SerializationManager.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Logging\NetworkLog.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Configuration\NetworkConstants.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\SceneManagement\SceneSwitchProgress.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\AutoNetworkSerializable.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\Pooled\NetworkWriterPool.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Configuration\HashSize.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\NetworkSerializer.cs" />
     <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\Pooled\PooledNetworkBuffer.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\Buffering\BufferManager.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Connection\PendingClient.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\NetworkBuffer.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\NetworkVariable\NetworkVariableSettings.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Core\NetworkTickSystem.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\RpcParams.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\Pooled\PooledNetworkReader.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\ProfilerStat.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\NetworkVariable\Collections\NetworkDictionary.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\Tasks\SocketTask.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Reflection\TypeExtensions.cs" />
     <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Configuration\NetworkConfig.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Exceptions\SpawnStateException.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Spawning\ReleasedNetworkId.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\NetworkVariable\NetworkVariablePermission.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Configuration\NetworkConstants.cs" />
     <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Connection\NetworkClient.cs" />
     <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\ProfilingDataStore.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\INetworkSerializable.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\NetworkDelivery.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\CustomMessageManager.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Exceptions\NotServerException.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\NetworkTransport.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\RpcQueue\RpcFrameQueueItem.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Exceptions\NetworkConfigurationException.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\NetworkEvent.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\MemoryStructures\ByteBool.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\UNET\ProfilerConstants.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\NetworkProfiler.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Spawning\NetworkSpawnManager.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\Pooled\NetworkBufferPool.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Exceptions\VisibilityChangeException.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\RpcQueue\RpcQueueContainer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Collections\FixedQueue.cs" />
     <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\ProfilerTickData.cs" />
-    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\PerformanceTickData.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Core\NetworkManager.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\UNET\UNetTransport.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\SceneManagement\NetworkSceneManager.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Core\NetworkTickSystem.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Transports\UNET\ProfilerConstants.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Serialization\Pooled\NetworkReaderPool.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\Buffering\BufferManager.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\RpcQueue\RpcFrameQueueItem.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Messaging\CustomMessageManager.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Profiling\ProfilerCountersInfo.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Exceptions\SpawnStateException.cs" />
+    <Compile Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\Spawning\ReleasedNetworkId.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Library\PackageCache\com.unity.multiplayer.mlapi@3e3aef6aa0\Runtime\com.unity.multiplayer.mlapi.runtime.asmdef" />
@@ -382,6 +382,12 @@
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.5.7\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>Library\PackageCache\com.mlapi.contrib.transport.photon-realtime@e47ee18972\Runtime\Photon\PhotonLibs\WebSocket\websocket-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Photon3Unity3D">
+      <HintPath>Library\PackageCache\com.mlapi.contrib.transport.photon-realtime@e47ee18972\Runtime\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll</HintPath>
+    </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.5.7\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
     </Reference>
@@ -408,12 +414,6 @@
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.5.7\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
-    </Reference>
-    <Reference Include="Photon3Unity3D">
-      <HintPath>Library\PackageCache\com.mlapi.contrib.transport.photon-realtime@e47ee18972\Runtime\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll</HintPath>
-    </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>Library\PackageCache\com.mlapi.contrib.transport.photon-realtime@e47ee18972\Runtime\Photon\PhotonLibs\WebSocket\websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>E:\Program Files\Unity Editors\2020.3.11f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>

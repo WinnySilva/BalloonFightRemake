@@ -32,67 +32,67 @@ public class playermove : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
         OnTriggerStay(player);
         LostBallon();
-    }   
+    }
 
-        void stopanim()
+    void stopanim()
+    {
+        anim.SetBool("jump", false);
+    }
+
+
+
+
+    void moviment()
+    {
+        // if (groundedPlayer && playerVelocity.y < 0)
+        //{
+        //   playerVelocity.y = 0f;
+        // }
+
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0);
+        controller.Move(move * Time.deltaTime * speed);
+        anim.SetFloat("Horizontal", move.x);
+        anim.SetFloat("speed", move.magnitude);
+        if (move != Vector3.zero)
         {
-            anim.SetBool("jump", false);
+            gameObject.transform.forward = move;
+
         }
-
-
-
-
-        void moviment()
-        {
-            // if (groundedPlayer && playerVelocity.y < 0)
-            //{
-            //   playerVelocity.y = 0f;
-            // }
-
-            Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0);
-            controller.Move(move * Time.deltaTime * speed);
-            anim.SetFloat("Horizontal", move.x);
-            anim.SetFloat("speed", move.magnitude);
-            if (move != Vector3.zero)
-            {
-                gameObject.transform.forward = move;
-
-            }
 
         // Changes the height position of the player..
         if (Input.GetButtonDown("Jump"))
-            {
-
-        //m_Rigidbody.AddForce(playerVelocity.y * jumpHeight, ForceMode.Force);
-             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3f * gravityValue);
-            if (groundedPlayer == true)
-                {
-
-                    anim.SetTrigger("jump");
-                }
-                if (groundedPlayer == false)
-                {
-                    anim.SetBool("grouded", true);
-                    anim.SetTrigger("jump");
-                  
-                }
-
-            }
-
-
-
-
-
-        }
-
-
-        void OnTriggerStay(Collider player)
         {
-            if (player.gameObject.tag == "ground")
+
+            //m_Rigidbody.AddForce(playerVelocity.y * jumpHeight, ForceMode.Force);
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3f * gravityValue);
+            if (groundedPlayer == true)
             {
-                anim.SetBool("grouded", false);
+
+                anim.SetTrigger("jump");
             }
+            if (groundedPlayer == false)
+            {
+                anim.SetBool("grouded", true);
+                anim.SetTrigger("jump");
+
+            }
+
         }
+
+
+
+
+
+    }
+
+
+    void OnTriggerStay(Collider player)
+    {
+        if (player.gameObject.tag == "ground")
+        {
+            anim.SetBool("grouded", false);
+        }
+    }
 
     void LostBallon()
     {

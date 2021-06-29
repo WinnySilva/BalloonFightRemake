@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using MLAPI;
+using MLAPI.SceneManagement;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playermove : MonoBehaviour
+
+public class playermove : NetworkBehaviour
 {
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -18,6 +21,10 @@ public class playermove : MonoBehaviour
     public int Score;
     private void Start()
     {
+        if (!this.IsOwner)
+        {
+            return;
+        }
         controller = gameObject.AddComponent<CharacterController>();
 
         m_Rigidbody = GetComponent<Rigidbody>();
@@ -26,6 +33,10 @@ public class playermove : MonoBehaviour
 
     void Update()
     {
+        if (!this.IsOwner)
+        {
+            return;
+        }
         groundedPlayer = controller.isGrounded;
         moviment();
         playerVelocity.y += gravityValue * Time.deltaTime;
@@ -78,10 +89,6 @@ public class playermove : MonoBehaviour
             }
 
         }
-
-
-
-
 
     }
 

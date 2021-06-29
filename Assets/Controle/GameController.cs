@@ -4,11 +4,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class GameController : NetworkBehaviour
 {
     public GameObject[] jogadores;
     public static GameController Instance { get; private set; }
     public Vector3[] posicoesIniciais;
+    public GameObject prefabJogador;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,25 +20,30 @@ public class GameController : MonoBehaviour
             return;
         }
         Instance = this;
-        jogadores = GameObject.FindGameObjectsWithTag("Player");
+        jogadores = GameObject.FindGameObjectsWithTag("PlayerInfo");
 
-        int i = 0;
-        Vector3 pos;
-        NetworkTransform goTrans;
-        //foreach (GameObject go in jogadores)
-        //{
-        //    goTrans = go.GetComponent<NetworkTransform>();
-        //    pos = posicoesIniciais[i++];
-        //    goTrans.Teleport(pos, go.transform.rotation);
-           
-        //    goTrans.transform.position = pos;
-        //    go.transform.position = pos;
-        //}
+        CarregarPersonagens();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+
+    void CarregarPersonagens()
+    {
+        int i = 0;
+        Vector3 pos;
+        NetworkTransform goTrans;
+        GameObject novo;
+        foreach (GameObject go in jogadores)
+        {
+            PlayerInfo info = go.GetComponent<PlayerInfo>();
+            pos = this.posicoesIniciais[i++];
+            novo = Instantiate(prefabJogador, pos, Quaternion.identity);
+            novo.GetComponent<NetworkObject>().SpawnAsPlayerObject(info.OwnerClientId);
+        }
     }
 }

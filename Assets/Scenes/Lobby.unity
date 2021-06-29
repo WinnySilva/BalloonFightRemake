@@ -2507,6 +2507,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112584029}
   m_CullTransparentMesh: 1
+--- !u!1001 &3412968264831202363
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3412968264038166942, guid: 1c5e9b6674edc5c46acbd7e7b45e5e54,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412968264038166942, guid: 1c5e9b6674edc5c46acbd7e7b45e5e54,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412968264038166942, guid: 1c5e9b6674edc5c46acbd7e7b45e5e54,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412968264038166942, guid: 1c5e9b6674edc5c46acbd7e7b45e5e54,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412968264038166942, guid: 1c5e9b6674edc5c46acbd7e7b45e5e54,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412968264038166942, guid: 1c5e9b6674edc5c46acbd7e7b45e5e54,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412968264038166942, guid: 1c5e9b6674edc5c46acbd7e7b45e5e54,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412968264038166942, guid: 1c5e9b6674edc5c46acbd7e7b45e5e54,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412968264038166942, guid: 1c5e9b6674edc5c46acbd7e7b45e5e54,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412968264038166942, guid: 1c5e9b6674edc5c46acbd7e7b45e5e54,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412968264038166942, guid: 1c5e9b6674edc5c46acbd7e7b45e5e54,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412968264038166943, guid: 1c5e9b6674edc5c46acbd7e7b45e5e54,
+        type: 3}
+      propertyPath: m_Name
+      value: playerInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412968264038166943, guid: 1c5e9b6674edc5c46acbd7e7b45e5e54,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c5e9b6674edc5c46acbd7e7b45e5e54, type: 3}
 --- !u!1001 &6645227207579504143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2568,6 +2642,38 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6645227206880709492, guid: 263002b65588bd24b9482ea57bd17eb9,
+        type: 3}
+      propertyPath: NetworkConfig.PlayerPrefabHash
+      value: Unity.Multiplayer.MLAPI.Runtime MLAPI.Configuration.NullableBoolSerializable
+      objectReference: {fileID: 0}
+    - target: {fileID: 6645227206880709492, guid: 263002b65588bd24b9482ea57bd17eb9,
+        type: 3}
+      propertyPath: NetworkConfig.PlayerPrefabHash.Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6645227206880709492, guid: 263002b65588bd24b9482ea57bd17eb9,
+        type: 3}
+      propertyPath: NetworkConfig.NetworkPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6645227206880709492, guid: 263002b65588bd24b9482ea57bd17eb9,
+        type: 3}
+      propertyPath: NetworkConfig.NetworkPrefabs.Array.data[0].Prefab
+      value: 
+      objectReference: {fileID: 3412968264038166943, guid: 1c5e9b6674edc5c46acbd7e7b45e5e54,
+        type: 3}
+    - target: {fileID: 6645227206880709492, guid: 263002b65588bd24b9482ea57bd17eb9,
+        type: 3}
+      propertyPath: NetworkConfig.NetworkPrefabs.Array.data[1].Prefab
+      value: 
+      objectReference: {fileID: 7103693788071244938, guid: ee93db849e8f4b1479600e56c75108d5,
+        type: 3}
+    - target: {fileID: 6645227206880709492, guid: 263002b65588bd24b9482ea57bd17eb9,
+        type: 3}
+      propertyPath: NetworkConfig.NetworkPrefabs.Array.data[0].PlayerPrefab
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6645227206880709494, guid: 263002b65588bd24b9482ea57bd17eb9,
         type: 3}

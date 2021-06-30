@@ -19,7 +19,7 @@ public class score : MonoBehaviour
     void Update()
     {
 
-        Score = Player.GetComponent<playermove>().Score;
+        //Score = Player.GetComponent<playermove>().Score;
 
         GetComponent<Text>().text = Mathf.RoundToInt(Score).ToString("0000");
 

@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerInfo : NetworkBehaviour
 {
    
-    public NetworkVariable<string> Nickname;
+    public NetworkVariable<string> Nickname { get; private set; }
     
     public NetworkVariable<ulong> Score;
 
@@ -33,6 +33,10 @@ public class PlayerInfo : NetworkBehaviour
         
     }
 
+    public void setNickname(string name)
+    {
+        this.Nickname.Value = name;
+    }
 
 
 }

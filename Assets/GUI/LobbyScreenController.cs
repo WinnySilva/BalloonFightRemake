@@ -22,7 +22,6 @@ public class LobbyScreenController : MonoBehaviour
         aguardeMsg.SetActive(false);
         infoConexao.SetActive(true);
 
-
     }
 
     void OnDestroy()
@@ -34,6 +33,9 @@ public class LobbyScreenController : MonoBehaviour
     {
         string sala = this.sala.text;
         string nickname = this.nickname.text;
+        aguardeMsg.SetActive(true);
+        infoConexao.SetActive(false);
+
         NetworkController.Instance.IniciarHost(sala, nickname);
     }
 
@@ -41,7 +43,8 @@ public class LobbyScreenController : MonoBehaviour
     {
         string sala = this.sala.text;
         string nickname = this.nickname.text;
-
+        aguardeMsg.SetActive(true);
+        infoConexao.SetActive(false);
         NetworkController.Instance.IniciarClient(sala, nickname);
     }
 
@@ -57,6 +60,21 @@ public class LobbyScreenController : MonoBehaviour
 
         aguardeMsg.SetActive(true);
         infoConexao.SetActive(false);
+        GameObject[] jogadores = GameObject.FindGameObjectsWithTag("PlayerInfo");
+
+        if (string.IsNullOrEmpty(this.nickname.text))
+        {
+            foreach (GameObject j in jogadores)
+            {
+                PlayerInfo pf = j.GetComponent<PlayerInfo>();
+                if (pf.IsOwner)
+                {
+                    pf.setNickname(this.nickname.text.Trim());
+                }
+            }
+        }
+
+
         if (NetworkManager.Singleton.IsHost)
         {
             iniciarPartida.SetActive(true);

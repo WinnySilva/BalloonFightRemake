@@ -51,7 +51,7 @@ public class LobbyScreenController : MonoBehaviour
     public void ComecarJogo()
     {
         aguardeMsg.SetActive(true);
-        NetworkController.Instance.SwitchScene("SampleScene_net");
+        NetworkController.Instance.SwitchScene("SampleScene");
 
     }
 
@@ -62,7 +62,7 @@ public class LobbyScreenController : MonoBehaviour
         infoConexao.SetActive(false);
         GameObject[] jogadores = GameObject.FindGameObjectsWithTag("PlayerInfo");
 
-        if (string.IsNullOrEmpty(this.nickname.text))
+        if (!string.IsNullOrEmpty(this.nickname.text))
         {
             foreach (GameObject j in jogadores)
             {
@@ -87,6 +87,21 @@ public class LobbyScreenController : MonoBehaviour
 
     private void ServerStarted()
     {
+        
+        GameObject[] jogadores = GameObject.FindGameObjectsWithTag("PlayerInfo");
+
+        if (!string.IsNullOrEmpty(this.nickname.text))
+        {
+            foreach (GameObject j in jogadores)
+            {
+                PlayerInfo pf = j.GetComponent<PlayerInfo>();
+                if (pf.IsOwner)
+                {
+                    pf.setNickname(this.nickname.text.Trim());
+                }
+            }
+        }
+
         iniciarPartida.SetActive(true);
         aguardeMsg.SetActive(false);
         infoConexao.SetActive(false);

@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class PlayerInfo : NetworkBehaviour
 {
-   
-    public NetworkVariable<string> Nickname { get; private set; }
+
+    public NetworkVariable<string> Nickname;
     
     public NetworkVariable<ulong> Score;
 

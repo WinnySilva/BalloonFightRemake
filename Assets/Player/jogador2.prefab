@@ -121,6 +121,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1059845603137048995, guid: ee93db849e8f4b1479600e56c75108d5,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 5898635693995910906, guid: 37f5dc3fda3f0e64a9d7f0b922cf7812,
+        type: 3}
+    - target: {fileID: 1059845603137048995, guid: ee93db849e8f4b1479600e56c75108d5,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 7990149133488084642, guid: 37f5dc3fda3f0e64a9d7f0b922cf7812,
+        type: 3}
     - target: {fileID: 1115021048534217898, guid: ee93db849e8f4b1479600e56c75108d5,
         type: 3}
       propertyPath: m_Layer

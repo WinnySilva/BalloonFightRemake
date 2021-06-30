@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using MLAPI;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMove : NetworkBehaviour
 {
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -18,18 +19,27 @@ public class PlayerMove : MonoBehaviour
     public Vector3 move;
     public int Score;
     private void Start()
-    {
-        controller = gameObject.AddComponent<CharacterController>();
 
+    {
+        if (!this.IsOwner)
+        {
+            return;
+        }
+        controller = gameObject.AddComponent<CharacterController>();
         m_Rigidbody = GetComponent<Rigidbody>();
     }
 
 
     void Update()
     {
+        if (!this.IsOwner)
+        {
+            return;
+        }
+
         groundedPlayer = controller.isGrounded;
         moviment();
-        playerVelocity.y += gravityValue * Time.deltaTime;
+        //playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
         OnTriggerEnter(player);
         OnTriggerExit(player);
@@ -41,33 +51,30 @@ public class PlayerMove : MonoBehaviour
         anim.SetBool("jump", false);
     }
 
-
-
-
     void moviment()
     {
-       //  if (groundedPlayer && playerVelocity.y < 0)
+        //  if (groundedPlayer && playerVelocity.y < 0)
         //{
-         //  playerVelocity.y = 0f;
-         //}
+        //  playerVelocity.y = 0f;
+        //}
 
         move = new Vector3(Input.GetAxis("Horizontal"), 0);
 
         controller.Move(move * Time.deltaTime * speed);
 
 
-        if (move.x == 0 && groundedPlayer==true)
+        if (move.x == 0 && groundedPlayer == true)
         {
             anim.SetBool("Horizontal", false);
             anim.SetBool("grouded", true);
         }
 
-            if (move.x > 0)
+        if (move.x > 0)
         {
-          // transform.eulerAngles = new Vector3(transform.eulerAngles.x, -280f, transform.eulerAngles.z);
+            // transform.eulerAngles = new Vector3(transform.eulerAngles.x, -280f, transform.eulerAngles.z);
             anim.SetBool("Horizontal", true);
-          
-            
+
+
 
         }
 
@@ -75,18 +82,19 @@ public class PlayerMove : MonoBehaviour
         {
             //transform.eulerAngles = new Vector3(transform.eulerAngles.x, 280f, transform.eulerAngles.z);
             anim.SetBool("Horizontal", true);
-          
-           
+
+
         }
 
-       
+
 
         // Changes the height position of the player..
         if (Input.GetButtonDown("Jump"))
         {
 
-            //m_Rigidbody.AddForce(playerVelocity.y * jumpHeight, ForceMode.Force);
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3f * gravityValue);
+            m_Rigidbody.AddForce(new Vector3(0,this.jumpHeight,0 ), ForceMode.Force);
+          //  playerVelocity.y += Mathf.Sqrt(jumpHeight * -3f * gravityValue);
+
             if (groundedPlayer == true)
             {
 
@@ -97,7 +105,7 @@ public class PlayerMove : MonoBehaviour
             if (groundedPlayer == false)
             {
                 anim.SetBool("grouded", false);
-                anim.SetBool("fly",true);
+                anim.SetBool("fly", true);
                 anim.SetBool("Horizontal", false);
 
             }
@@ -119,7 +127,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (player.gameObject.tag == "ground")
         {
-           anim.SetBool("grouded", true);
+            anim.SetBool("grouded", true);
         }
     }
 
@@ -148,10 +156,6 @@ public class PlayerMove : MonoBehaviour
         }
 
     }
-
-
-
-
 
 }
 

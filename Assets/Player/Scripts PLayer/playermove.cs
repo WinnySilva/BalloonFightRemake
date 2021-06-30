@@ -1,11 +1,8 @@
-﻿using MLAPI;
-using MLAPI.SceneManagement;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class playermove : NetworkBehaviour
+public class PlayerMove : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -18,13 +15,10 @@ public class playermove : NetworkBehaviour
     public GameObject balloon;
     public GameObject balloon2;
     private Rigidbody m_Rigidbody;
+    public Vector3 move;
     public int Score;
     private void Start()
     {
-        if (!this.IsOwner)
-        {
-            return;
-        }
         controller = gameObject.AddComponent<CharacterController>();
 
         m_Rigidbody = GetComponent<Rigidbody>();
@@ -33,15 +27,12 @@ public class playermove : NetworkBehaviour
 
     void Update()
     {
-        if (!this.IsOwner)
-        {
-            return;
-        }
         groundedPlayer = controller.isGrounded;
         moviment();
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-        OnTriggerStay(player);
+        OnTriggerEnter(player);
+        OnTriggerExit(player);
         LostBallon();
     }
 
@@ -55,20 +46,40 @@ public class playermove : NetworkBehaviour
 
     void moviment()
     {
-        // if (groundedPlayer && playerVelocity.y < 0)
+       //  if (groundedPlayer && playerVelocity.y < 0)
         //{
-        //   playerVelocity.y = 0f;
-        // }
+         //  playerVelocity.y = 0f;
+         //}
 
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0);
+        move = new Vector3(Input.GetAxis("Horizontal"), 0);
+
         controller.Move(move * Time.deltaTime * speed);
-        anim.SetFloat("Horizontal", move.x);
-        anim.SetFloat("speed", move.magnitude);
-        if (move != Vector3.zero)
+
+
+        if (move.x == 0 && groundedPlayer==true)
         {
-            gameObject.transform.forward = move;
+            anim.SetBool("Horizontal", false);
+            anim.SetBool("grouded", true);
+        }
+
+            if (move.x > 0)
+        {
+          // transform.eulerAngles = new Vector3(transform.eulerAngles.x, -280f, transform.eulerAngles.z);
+            anim.SetBool("Horizontal", true);
+          
+            
 
         }
+
+        if (move.x < 0)
+        {
+            //transform.eulerAngles = new Vector3(transform.eulerAngles.x, 280f, transform.eulerAngles.z);
+            anim.SetBool("Horizontal", true);
+          
+           
+        }
+
+       
 
         // Changes the height position of the player..
         if (Input.GetButtonDown("Jump"))
@@ -80,20 +91,40 @@ public class playermove : NetworkBehaviour
             {
 
                 anim.SetTrigger("jump");
+                anim.SetBool("Horizontal", false);
+                anim.SetBool("grouded", false);
             }
             if (groundedPlayer == false)
             {
-                anim.SetBool("grouded", true);
-                anim.SetTrigger("jump");
+                anim.SetBool("grouded", false);
+                anim.SetBool("fly",true);
+                anim.SetBool("Horizontal", false);
 
             }
 
         }
 
+
+        if (move != Vector3.zero)
+        {
+            gameObject.transform.forward = move;
+
+        }
+
+
     }
 
 
-    void OnTriggerStay(Collider player)
+    void OnTriggerEnter(Collider player)
+    {
+        if (player.gameObject.tag == "ground")
+        {
+           anim.SetBool("grouded", true);
+        }
+    }
+
+
+    void OnTriggerExit(Collider player)
     {
         if (player.gameObject.tag == "ground")
         {

@@ -65,16 +65,16 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.9352751
-        functionName: groundout
+      - time: 0.9223301
+        functionName: entrada
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: effffc1bece7d2649bd91428f812b76c,
           type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.9935275
-        functionName: entrada
+      - time: 0.9288026
+        functionName: groundout
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: effffc1bece7d2649bd91428f812b76c,
           type: 3}

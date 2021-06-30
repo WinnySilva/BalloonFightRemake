@@ -23,7 +23,7 @@ public class bolha : MonoBehaviour
         {
             {
                 Destroy(gameObject, 0f);
-                player.GetComponent<playermove>().Score= +500;
+                player.GetComponent<PlayerMove>().Score= +500;
             }
 
         }

@@ -51,9 +51,9 @@ public class enemy : MonoBehaviour
 
 
         }
-        
-        //OnTriggerS(enemys);
 
+        //OnTriggerS(enemys);
+        OnTriggerEnter(enemys);
 
         if (caca == true)
         {
@@ -73,9 +73,10 @@ public class enemy : MonoBehaviour
 
 
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 3)
+        if(other.gameObject.tag == "Pballon")
         {
             alvo = other.transform;
         }
@@ -93,22 +94,10 @@ public class enemy : MonoBehaviour
     {
         playerVelocity.y += Mathf.Sqrt(100 * -3.0f * gravityValue);
          gameObject.GetComponent<CharacterController>().enabled = false;
-       
+        anim.SetBool("fly", true);
     }
 
-   // void OnTriggerStay(Collider player)
-    //{
-      //  if (player.gameObject.tag == "ground")
-       // {
-            //anim.SetBool("fly", false);
-        //    Debug.Log("aqui");
 
-        //}
-//        if (player.gameObject.tag != "ground")
-  //       { anim.SetBool("fly", true); }
-       
-        
-    //}
 
 
         void MoveCharacter(Vector3 frameMovement)
@@ -126,9 +115,32 @@ public class enemy : MonoBehaviour
         var valorAleatorio = Alvos[rnd.Next(Alvos.Count)];
         alvo = valorAleatorio;
     }
-    
 
-        void hunt()   // caça o inimigo
+
+    void NaveHunt(Transform alvo)
+    {
+        nave.SetDestination(alvo.transform.position);
+        Vector3 direction = alvo.position - transform.position;
+        float distanceToTarget = direction.magnitude;
+        direction.Normalize();
+
+
+        if (direction.x > 0)
+        {
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, -280f, transform.eulerAngles.z);
+        }
+        if (direction.x < 0)
+        {
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, 280f, transform.eulerAngles.z);
+        }
+
+    }
+
+
+
+
+
+    void hunt()   // caça o inimigo
         {
             Vector3 direction = alvo.position - transform.position;
         
@@ -168,25 +180,9 @@ public class enemy : MonoBehaviour
             MoveCharacter(actualMovementThisFrame * direction);
         }
 
-        void navehunt(Transform alvo)
-        {
-        nave.SetDestination(alvo.transform.position);
-            Vector3 direction = alvo.position - transform.position;
-            float distanceToTarget = direction.magnitude;
-            direction.Normalize();
-
-
-        if (direction.x > 0)
-            {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, -280f, transform.eulerAngles.z);
-            }
-            if (direction.x < 0)
-            {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, 280f, transform.eulerAngles.z);
-            }
-
-        }
+       
     }
+
 
 
 

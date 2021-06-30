@@ -32,7 +32,7 @@ public class pegou : MonoBehaviour
 
             //player.transform.SetParent(peixe.transform);
             player.transform.parent = peixe.transform;
-            player.GetComponent<playermove>().enabled = false;
+            player.GetComponent<PlayerMove>().enabled = false;
             anim.SetBool("aparece", false);
             player.GetComponent<Animator>().SetBool("fall",true);
 

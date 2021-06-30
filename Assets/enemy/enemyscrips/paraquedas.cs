@@ -29,7 +29,7 @@ public class paraquedas : MonoBehaviour
 
         if (player.gameObject.tag == "Player")
         {
-            player.GetComponent<playermove>().Score = +pontuacao;
+            player.GetComponent<PlayerMove>().Score = +pontuacao;
             parashut.SetActive(false);
 
                 cair = true;

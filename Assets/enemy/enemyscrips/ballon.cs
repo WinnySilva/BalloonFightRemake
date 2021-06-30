@@ -32,7 +32,7 @@ public class ballon : MonoBehaviour
 
         if (player.gameObject.tag == "Player")
         {
-            player.GetComponent<playermove>().Score = +pontuacao;
+            player.GetComponent<PlayerMove>().Score = +pontuacao;
             balloon.SetActive(false);
             Navagent.GetComponent<NavMeshAgent>().enabled = false;
             gameObject.GetComponent<enemy>().caca = false;

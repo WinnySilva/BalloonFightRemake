@@ -9,7 +9,8 @@ public class GameController : NetworkBehaviour
     public GameObject[] jogadores;
     public static GameController Instance { get; private set; }
     public Vector3[] posicoesIniciais;
-    public GameObject prefabJogador;
+    public GameObject prefabJogadorUm;
+    public GameObject prefabJogadorDois;
 
 
     // Start is called before the first frame update
@@ -36,14 +37,22 @@ public class GameController : NetworkBehaviour
     {
         int i = 0;
         Vector3 pos;
-        NetworkTransform goTrans;
         GameObject novo;
         foreach (GameObject go in jogadores)
         {
             PlayerInfo info = go.GetComponent<PlayerInfo>();
             pos = this.posicoesIniciais[i++];
-            novo = Instantiate(prefabJogador, pos, Quaternion.identity);
-            novo.GetComponent<NetworkObject>().SpawnAsPlayerObject(info.OwnerClientId);
+            if (info.IsOwner)
+            {
+                novo = Instantiate(prefabJogadorUm, pos, Quaternion.identity);
+                novo.GetComponent<NetworkObject>().SpawnAsPlayerObject(info.OwnerClientId);
+            }
+            else
+            {
+                novo = Instantiate(prefabJogadorDois, pos, Quaternion.identity);
+                novo.GetComponent<NetworkObject>().SpawnAsPlayerObject(info.OwnerClientId);
+            }
+
         }
     }
 }

@@ -1,5 +1,46 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!136 &2143665448
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3613507632322491970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 54.351593
+  m_Height: 126.72749
+  m_Direction: 1
+  m_Center: {x: 0.06132107, y: -4.631154, z: 95.04116}
+--- !u!135 &606842107
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7103693787023894923}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 19.393608
+  m_Center: {x: 4.6190834, y: -0.58410877, z: 10.077297}
+--- !u!114 &606842106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7103693787023894923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e53c5a26cdcbd849b5e2f29c6644ad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  act: {fileID: 606842107}
+  cair: 2
 --- !u!136 &319554578
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -62,26 +103,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &319554575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7103693788071244938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1bd4557eadae334894aee3260d88fc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 70
-  jumpHeight: 10
-  gravityValue: -150
-  anim: {fileID: 4557255403442746442}
-  player: {fileID: 319554578}
-  balloon: {fileID: 3125376061538783216}
-  balloon2: {fileID: 4369952756131876304}
-  Score: 0
 --- !u!114 &319554579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,6 +116,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   netTransform: {fileID: 0}
+--- !u!114 &1059845603137048995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7103693788071244938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bd4557eadae334894aee3260d88fc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  jumpHeight: 1
+  gravityValue: -9.81
+  anim: {fileID: 0}
+  player: {fileID: 0}
+  balloon: {fileID: 0}
+  balloon2: {fileID: 0}
+  move: {x: 0, y: 0, z: 0}
+  Score: 0
 --- !u!114 &4333859157164418080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,47 +154,21 @@ MonoBehaviour:
   PrefabHashGenerator: Jogador
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
---- !u!135 &606842107
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7103693787023894923}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 19.393608
-  m_Center: {x: 4.6190834, y: -0.58410877, z: 10.077297}
---- !u!114 &606842106
+--- !u!114 &5258262686353433745
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7103693787023894923}
+  m_GameObject: {fileID: 7103693788071244938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e53c5a26cdcbd849b5e2f29c6644ad2, type: 3}
+  m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  act: {fileID: 606842107}
-  cair: 2
---- !u!136 &2143665448
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3613507632322491970}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 54.351593
-  m_Height: 126.72749
-  m_Direction: 1
-  m_Center: {x: 0.06132107, y: -4.631154, z: 95.04116}
+  SendRate: 0.1
+  m_Animator: {fileID: 4557255403442746442}
+  m_TrackedParamFlags: 31
 --- !u!1001 &7949990293622720987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -457,18 +473,6 @@ PrefabInstance:
 --- !u!1 &7103693787023894923 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b8d26dce9414e9e4d8a59176549c068f,
-    type: 3}
-  m_PrefabInstance: {fileID: 7949990293782680794}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3125376061538783216 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4975240591311837994, guid: b8d26dce9414e9e4d8a59176549c068f,
-    type: 3}
-  m_PrefabInstance: {fileID: 7949990293782680794}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4369952756131876304 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5976622973682096394, guid: b8d26dce9414e9e4d8a59176549c068f,
     type: 3}
   m_PrefabInstance: {fileID: 7949990293782680794}
   m_PrefabAsset: {fileID: 0}

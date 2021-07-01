@@ -51,7 +51,7 @@ public class LobbyScreenController : MonoBehaviour
     public void ComecarJogo()
     {
         aguardeMsg.SetActive(true);
-        NetworkController.Instance.SwitchScene("SampleScene");
+        NetworkController.Instance.SwitchScene("Fase_01");
 
     }
 

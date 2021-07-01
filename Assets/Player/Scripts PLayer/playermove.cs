@@ -39,8 +39,6 @@ public class PlayerMove : NetworkBehaviour
 
         groundedPlayer = controller.isGrounded;
         moviment();
-        //playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
         OnTriggerEnter(player);
         OnTriggerExit(player);
         LostBallon();
@@ -53,10 +51,6 @@ public class PlayerMove : NetworkBehaviour
 
     void moviment()
     {
-        //  if (groundedPlayer && playerVelocity.y < 0)
-        //{
-        //  playerVelocity.y = 0f;
-        //}
 
         move = new Vector3(Input.GetAxis("Horizontal"), 0);
 
@@ -74,27 +68,21 @@ public class PlayerMove : NetworkBehaviour
             // transform.eulerAngles = new Vector3(transform.eulerAngles.x, -280f, transform.eulerAngles.z);
             anim.SetBool("Horizontal", true);
 
-
-
         }
 
         if (move.x < 0)
         {
             //transform.eulerAngles = new Vector3(transform.eulerAngles.x, 280f, transform.eulerAngles.z);
             anim.SetBool("Horizontal", true);
-
-
         }
-
-
 
         // Changes the height position of the player..
         if (Input.GetButtonDown("Jump"))
         {
 
-            m_Rigidbody.AddForce(new Vector3(0,this.jumpHeight,0 ), ForceMode.Force);
-          //  playerVelocity.y += Mathf.Sqrt(jumpHeight * -3f * gravityValue);
-
+           // m_Rigidbody.AddForce(new Vector3(0,this.jumpHeight,0 ), ForceMode.Impulse);
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3f * gravityValue);
+        //    controller.Move(move * Time.deltaTime * speed);
             if (groundedPlayer == true)
             {
 
@@ -102,6 +90,7 @@ public class PlayerMove : NetworkBehaviour
                 anim.SetBool("Horizontal", false);
                 anim.SetBool("grouded", false);
             }
+
             if (groundedPlayer == false)
             {
                 anim.SetBool("grouded", false);
@@ -118,8 +107,8 @@ public class PlayerMove : NetworkBehaviour
             gameObject.transform.forward = move;
 
         }
-
-
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
     }
 
 

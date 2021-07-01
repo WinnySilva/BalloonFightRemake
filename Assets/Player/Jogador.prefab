@@ -41,22 +41,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   act: {fileID: 606842107}
   cair: 2
---- !u!54 &-6330784293205091616
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7103693788071244938}
-  serializedVersion: 2
-  m_Mass: 20
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 64
-  m_CollisionDetection: 0
 --- !u!136 &319554578
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -83,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FixedSendsPerSecond: 20
+  FixedSendsPerSecond: 50.8
   AssumeSyncedSends: 1
   InterpolatePosition: 1
   SnapDistance: 10
@@ -132,27 +116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   netTransform: {fileID: 0}
---- !u!114 &1059845603137048995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7103693788071244938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1bd4557eadae334894aee3260d88fc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 30
-  jumpHeight: 25
-  gravityValue: -9.81
-  anim: {fileID: 4557255403442746442}
-  player: {fileID: 319554578}
-  balloon: {fileID: 3125376061538783216}
-  balloon2: {fileID: 4369952756131876304}
-  move: {x: 0, y: 0, z: 0}
-  Score: 0
 --- !u!114 &4333859157164418080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +148,27 @@ MonoBehaviour:
   SendRate: 0.1
   m_Animator: {fileID: 4557255403442746442}
   m_TrackedParamFlags: 31
+--- !u!114 &5679563182814368852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7103693788071244938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bd4557eadae334894aee3260d88fc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
+  jumpHeight: 70
+  gravityValue: -100
+  anim: {fileID: 4557255403442746442}
+  player: {fileID: 319554578}
+  balloon: {fileID: 3125376061538783216}
+  balloon2: {fileID: 4369952756131876304}
+  move: {x: 0, y: 0, z: 0}
+  Score: 0
 --- !u!1001 &7949990293622720987
 PrefabInstance:
   m_ObjectHideFlags: 0

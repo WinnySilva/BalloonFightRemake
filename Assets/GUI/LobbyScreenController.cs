@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 
 
-public class LobbyScreenController : MonoBehaviour
+public class LobbyScreenController : NetworkBehaviour
 {
 
     public TMP_InputField sala;
@@ -35,7 +35,7 @@ public class LobbyScreenController : MonoBehaviour
         string nickname = this.nickname.text;
         aguardeMsg.SetActive(true);
         infoConexao.SetActive(false);
-
+        
         NetworkController.Instance.IniciarHost(sala, nickname);
     }
 
@@ -88,8 +88,10 @@ public class LobbyScreenController : MonoBehaviour
     private void ServerStarted()
     {
         
+        iniciarPartida.SetActive(true);
+        aguardeMsg.SetActive(true);
+        infoConexao.SetActive(false);
         GameObject[] jogadores = GameObject.FindGameObjectsWithTag("PlayerInfo");
-
         if (!string.IsNullOrEmpty(this.nickname.text))
         {
             foreach (GameObject j in jogadores)
@@ -102,9 +104,6 @@ public class LobbyScreenController : MonoBehaviour
             }
         }
 
-        iniciarPartida.SetActive(true);
-        aguardeMsg.SetActive(false);
-        infoConexao.SetActive(false);
     }
 
 

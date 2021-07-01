@@ -18,6 +18,7 @@ public class PlayerMove : NetworkBehaviour
     private Rigidbody m_Rigidbody;
     public Vector3 move;
     public int Score;
+    public int decaimentoPulo = 1;
     private void Start()
 
     {
@@ -55,12 +56,13 @@ public class PlayerMove : NetworkBehaviour
         move = new Vector3(Input.GetAxis("Horizontal"), 0);
 
         controller.Move(move * Time.deltaTime * speed);
-
-
+        
+        
         if (move.x == 0 && groundedPlayer == true)
         {
             anim.SetBool("Horizontal", false);
-            anim.SetBool("grouded", true);
+            anim.SetBool("grouded", true); 
+          
         }
 
         if (move.x > 0)
@@ -80,19 +82,18 @@ public class PlayerMove : NetworkBehaviour
         if (Input.GetButtonDown("Jump"))
         {
 
-           // m_Rigidbody.AddForce(new Vector3(0,this.jumpHeight,0 ), ForceMode.Impulse);
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3f * gravityValue);
-        //    controller.Move(move * Time.deltaTime * speed);
             if (groundedPlayer == true)
             {
-
+                playerVelocity.y += Mathf.Sqrt(jumpHeight * -3f * gravityValue);
                 anim.SetTrigger("jump");
                 anim.SetBool("Horizontal", false);
                 anim.SetBool("grouded", false);
+                decaimentoPulo = 1;
             }
 
             if (groundedPlayer == false)
             {
+                playerVelocity.y += Mathf.Sqrt(jumpHeight * -3f * gravityValue);
                 anim.SetBool("grouded", false);
                 anim.SetBool("fly", true);
                 anim.SetBool("Horizontal", false);
@@ -100,7 +101,7 @@ public class PlayerMove : NetworkBehaviour
             }
 
         }
-
+        
 
         if (move != Vector3.zero)
         {

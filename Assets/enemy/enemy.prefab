@@ -6792,14 +6792,7 @@ MonoBehaviour:
   anim: {fileID: 799081000870796608}
   enemys: {fileID: 0}
   balloon: {fileID: 6250182195466451480}
-  Alvos:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  Alvos: []
   gravityValue: -9.81
 --- !u!1 &6326954641423471349
 GameObject:

@@ -7,6 +7,8 @@ TagManager:
   - ground
   - atack
   - PlayerInfo
+  - Pballon
+  - caminhoPatrulha
   layers:
   - Default
   - TransparentFX

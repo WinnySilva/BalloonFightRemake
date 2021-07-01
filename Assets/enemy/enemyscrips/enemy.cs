@@ -15,9 +15,9 @@ public class enemy : MonoBehaviour
     public Collider enemys;
     private Vector3 playerVelocity;
     public GameObject balloon;
-    private CharacterController controller;
-    public List<Transform> Alvos;
 
+    public GameObject[] Alvos;
+    private Rigidbody rig;
     private bool groundedPlayer;
     public float gravityValue = -9.81f;
     // Start is called before the first frame update
@@ -27,56 +27,51 @@ public class enemy : MonoBehaviour
         var agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        Alvos = GameObject.FindGameObjectsWithTag("caminhoPatrulha");
+
+        rig = GetComponent<Rigidbody>();
         GeraAlvo();
-
-        controller = gameObject.AddComponent<CharacterController>();
-
-      
-
+        caca = true;
+        NaveHunt(alvo);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-       
-        
-       
-
-
         if (ballon.cair == true)
         {
             anim.SetBool("fall", true);
-            
-
-
+            StartCoroutine("DestruirInimigo");
         }
 
         //OnTriggerS(enemys);
         OnTriggerEnter(enemys);
 
-        if (caca == true)
+
+
+        //if (caca == true)
+        //{
+        //    hunt();
+        //}
+        //else
+        //{
+
+        //    GeraAlvo();
+        //    caca = true;
+        //}
+        if (nave.remainingDistance < 100)
         {
-            hunt();
-
+            GeraAlvo();
+            NaveHunt(alvo);
         }
-        groundedPlayer = controller.isGrounded;
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
-
-
-
-
-     
-
-
 
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Pballon")
+        if (other.gameObject.tag == "Pballon")
         {
             alvo = other.transform;
         }
@@ -88,37 +83,34 @@ public class enemy : MonoBehaviour
         caca = true;
         nave.GetComponent<NavMeshAgent>().enabled = true;
         anim.SetBool("fly", true);
-
     }
     void groundout()
     {
         playerVelocity.y += Mathf.Sqrt(100 * -3.0f * gravityValue);
-         gameObject.GetComponent<CharacterController>().enabled = false;
+
         anim.SetBool("fly", true);
     }
 
+    void MoveCharacter(Vector3 frameMovement)
+    {
+        Vector3 novaPos = transform.position += frameMovement;
+        rig.MovePosition(novaPos);
 
-
-
-        void MoveCharacter(Vector3 frameMovement)
-        {
-            transform.position += frameMovement;
-            frameMovement.z = 0;
-        }
-
-
-
+        //  frameMovement.z = 0;
+    }
 
     public void GeraAlvo()
     {
-        var rnd = new System.Random();
-        var valorAleatorio = Alvos[rnd.Next(Alvos.Count)];
-        alvo = valorAleatorio;
-    }
+        int rnd = UnityEngine.Random.Range(0, Alvos.Length);
+        var valorAleatorio = Alvos[rnd];
+        alvo = valorAleatorio.transform;
 
+
+    }
 
     void NaveHunt(Transform alvo)
     {
+        nave.isStopped = false;
         nave.SetDestination(alvo.transform.position);
         Vector3 direction = alvo.position - transform.position;
         float distanceToTarget = direction.magnitude;
@@ -136,29 +128,19 @@ public class enemy : MonoBehaviour
 
     }
 
-
-
-
-
     void hunt()   // caça o inimigo
-        {
-            Vector3 direction = alvo.position - transform.position;
-        
-
-        
+    {
+        Vector3 direction = alvo.position - transform.position;
 
         float distanceToTarget = direction.magnitude;
 
+        if (Math.Abs(distanceToTarget) < 100)
+        {
+            caca = false;
+            return;
+        }
 
-            direction.Normalize();
-
-
-
-
-
-
-
-
+        direction.Normalize();
         if (direction.x > 0)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, -280f, transform.eulerAngles.z);
@@ -168,20 +150,18 @@ public class enemy : MonoBehaviour
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 280f, transform.eulerAngles.z);
         }
 
-
-
-
-
-
-
         float distanceWantsToMoveThisFrame = speed * Time.deltaTime;
-            float actualMovementThisFrame = Mathf.Min(Mathf.Abs(distanceToTarget - 1), distanceWantsToMoveThisFrame);
+        float actualMovementThisFrame = Mathf.Min(Mathf.Abs(distanceToTarget - 1), distanceWantsToMoveThisFrame);
 
-            MoveCharacter(actualMovementThisFrame * direction);
-        }
-
-       
+        MoveCharacter(actualMovementThisFrame * direction);
     }
+
+    public IEnumerator DestruirInimigo()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(this.gameObject);
+    }
+}
 
 
 

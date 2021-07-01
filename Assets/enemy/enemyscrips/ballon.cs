@@ -36,17 +36,11 @@ public class ballon : MonoBehaviour
             balloon.SetActive(false);
             Navagent.GetComponent<NavMeshAgent>().enabled = false;
             gameObject.GetComponent<enemy>().caca = false;
-            gameObject.GetComponent<CharacterController>().enabled =true;
-         
+           
             cair = true;
             gameObject.GetComponent<enemy>().gravityValue = -9.81f;
 
-
-
-
-
-            parashut.SetActive(true);
-            
+            parashut.SetActive(true);        
 
 
 

@@ -36,15 +36,10 @@ public class NetworkController : NetworkBehaviour
 
     public void IniciarHost(string nomeSala, string nickname)
     {
-
-
-        //    PlayerNet cliente = new LoadBalancingClient();
-
+             
         transport.RoomName = nomeSala;
-        //   transport.Client.NickName = nickname;
-
+       
         NetworkManager.Singleton.StartHost();
-
 
     }
 

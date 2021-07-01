@@ -35,6 +35,7 @@ public class pegou : MonoBehaviour
             player.GetComponent<PlayerMove>().enabled = false;
             anim.SetBool("aparece", false);
             player.GetComponent<Animator>().SetBool("fall",true);
+            player.GetComponent<PlayerBallon>().cair = -2;
 
             //anim.SetBool("volta");
             //peixe.SetActive(true);

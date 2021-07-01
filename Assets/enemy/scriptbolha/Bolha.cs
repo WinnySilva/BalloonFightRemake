@@ -6,6 +6,7 @@ public class Bolha : MonoBehaviour
 {
     public float speed;
     private float timeDestroy;
+    public Collider esfera;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class Bolha : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.up * speed * Time.deltaTime);
+        OnTriggerEnter(esfera);
     }
 
 
@@ -24,5 +26,20 @@ public class Bolha : MonoBehaviour
     {
         timeDestroy = 0f;
         Destroy(gameObject, timeDestroy);
+
+    }
+
+
+    void OnTriggerEnter(Collider player)
+    {
+
+        if (player.gameObject.tag == "Player")
+        {
+            player.GetComponent<PlayerMove>().Score = +500;
+
+            timeDestroy = 0f;
+            Destroy(gameObject, timeDestroy);
+
+        }
     }
 }

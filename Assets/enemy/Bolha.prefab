@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  esfera: {fileID: 8423546425870313561}
 --- !u!54 &1689321631765041705
 Rigidbody:
   m_ObjectHideFlags: 0

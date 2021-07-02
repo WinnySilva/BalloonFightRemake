@@ -27,11 +27,30 @@ public class pegou : MonoBehaviour
         {
 
             //player.transform.SetParent(peixe.transform);
-            player.transform.parent = peixe.transform;          
+                     
             anim.SetBool("aparece", false);
 
             PlayerMovement pm = player.gameObject.GetComponent<PlayerMovement>();
-            pm.PegoPeloPeixe();
+            pm.PegoPeloPeixe(peixe.transform);
+            //anim.SetBool("volta");
+            //peixe.SetActive(true);
+            // peixe.anim.SetBool("olhar", false);
+        }
+
+    }
+
+    void OnCollisionEnter(Collision player)
+    {
+
+        if (player.gameObject.tag == "Player")
+        {
+
+            //player.transform.SetParent(peixe.transform);
+            
+            anim.SetBool("aparece", false);
+
+            PlayerMovement pm = player.gameObject.GetComponent<PlayerMovement>();
+            pm.PegoPeloPeixe(peixe.transform);
             //anim.SetBool("volta");
             //peixe.SetActive(true);
             // peixe.anim.SetBool("olhar", false);

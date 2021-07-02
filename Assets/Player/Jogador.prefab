@@ -83,9 +83,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286a1898f65573748a1bbf9056610c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
-  jumpHeight: 70
-  gravityValue: -9.81
+  speed: 500
+  jumpHeight: 200
+  gravityValue: -20
   anim: {fileID: 4557255403442746442}
   player: {fileID: 319554578}
   balloon: {fileID: 3125376061538783216}

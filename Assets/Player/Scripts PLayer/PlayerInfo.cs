@@ -21,13 +21,13 @@ public class PlayerInfo : NetworkBehaviour
             return;
         }
         Nickname  = new NetworkVariable<string>(
-            new NetworkVariableSettings { WritePermission = NetworkVariablePermission.Everyone }, string.Empty);
+            new NetworkVariableSettings { WritePermission = NetworkVariablePermission.Everyone, ReadPermission = NetworkVariablePermission.Everyone }, string.Empty);
 
         Score = new NetworkVariable<int>(
-                new NetworkVariableSettings { WritePermission = NetworkVariablePermission.Everyone }, 0);
+                new NetworkVariableSettings { WritePermission = NetworkVariablePermission.Everyone, ReadPermission = NetworkVariablePermission.Everyone }, 0);
 
         Vida = new NetworkVariable<int>(
-               new NetworkVariableSettings { WritePermission = NetworkVariablePermission.Everyone }, 2);
+               new NetworkVariableSettings { WritePermission = NetworkVariablePermission.Everyone, ReadPermission = NetworkVariablePermission.Everyone }, 2);
 
     }
 

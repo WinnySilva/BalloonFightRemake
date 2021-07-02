@@ -176,7 +176,7 @@ public class enemy : MonoBehaviour
 
     IEnumerator Morrer()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(0.1f);
         Destroy(this.gameObject);
     }
 }

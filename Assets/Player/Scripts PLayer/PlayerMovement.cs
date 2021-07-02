@@ -37,7 +37,7 @@ public class PlayerMovement : NetworkBehaviour
         this.m_Rigidbody.AddForce(new Vector3(0, this.gravityValue), ForceMode.Force);
         groundedPlayer = true;
         EstaMorto = new NetworkVariable<bool>(
-                new NetworkVariableSettings { WritePermission = NetworkVariablePermission.Everyone }, false);
+                new NetworkVariableSettings { WritePermission = NetworkVariablePermission.Everyone, ReadPermission = NetworkVariablePermission.Everyone }, false);
 
         EstaMorto.Value = false;
     }
@@ -225,7 +225,11 @@ public class PlayerMovement : NetworkBehaviour
         balloon2.SetActive(false);
         gravityValue = -10000;
         this.m_Rigidbody.AddForce(new Vector3(0, this.gravityValue), ForceMode.Force);
-        StartCoroutine(Morrer());
+        if (IsOwner)
+        {
+            EstaMorto.Value = true;
+            
+        }
     }
 
     private void UmBalaoSobrando()
@@ -233,9 +237,13 @@ public class PlayerMovement : NetworkBehaviour
         balloon.SetActive(false);
     }
 
-    public void PegoPeloPeixe()
+    public void PegoPeloPeixe(Transform peixe)
     {
-        StartCoroutine(Morrer());
+        if (IsOwner)
+        {
+            transform.parent = peixe;
+            EstaMorto.Value = true;           
+        }
     }
 
     IEnumerator Morrer()

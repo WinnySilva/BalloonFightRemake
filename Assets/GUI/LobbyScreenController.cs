@@ -126,7 +126,7 @@ public class LobbyScreenController : NetworkBehaviour
             return;
         }
         GameObject[] jogadores = GameObject.FindGameObjectsWithTag("PlayerInfo");
-        string msg = "Conectados na sala \n" + this.nomeSala+ ":\n";
+        string msg = "Conectados na sala " + this.nomeSala+ ":\n";
         int i = 1;
         foreach (GameObject j in jogadores)
         {

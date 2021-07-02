@@ -48,10 +48,8 @@ public class Pegaplayer : MonoBehaviour
             //peixe.SetActive(true);
             // peixe.anim.SetBool("olhar", false);
             PlayerMovement pm = player.gameObject.GetComponent<PlayerMovement>();
-            pm.PegoPeloPeixe();
+           
         }
-
-
 
         if (player.gameObject.tag == "Enemy")
         {

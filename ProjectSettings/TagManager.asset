@@ -9,6 +9,7 @@ TagManager:
   - PlayerInfo
   - Pballon
   - caminhoPatrulha
+  - limite
   layers:
   - Default
   - TransparentFX

@@ -2,27 +2,20 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-
-public class LobbyController : MonoBehaviour
+public class TitleScreenController : MonoBehaviour
 {
 
-    public TMP_InputField sala;
-    public TMP_InputField nickname;
-
-
-    public void IniciarHost()
+    private void Start()
     {
-        string sala = this.sala.text;
-        string nickname = this.nickname.text;
-        NetworkController.Instance.IniciarHost(sala, nickname);
+
     }
-
-    public void IniciarCliente()
+    
+    public void IrParaLobby()
     {
-        string sala = this.sala.text;
-        string nickname = this.nickname.text;
-        NetworkController.Instance.IniciarClient(sala, nickname);
+        SceneManager.LoadScene("Lobby",LoadSceneMode.Single);
+
     }
 
 }

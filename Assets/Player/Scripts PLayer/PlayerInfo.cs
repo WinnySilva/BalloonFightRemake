@@ -9,21 +9,25 @@ public class PlayerInfo : NetworkBehaviour
 
     public NetworkVariable<string> Nickname;
     
-    public NetworkVariable<ulong> Score;
+    public NetworkVariable<int> Score;
 
     public NetworkVariable<int> Vida;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (!this.IsOwner)
+        {
+            return;
+        }
         Nickname  = new NetworkVariable<string>(
-            new NetworkVariableSettings { WritePermission = NetworkVariablePermission.OwnerOnly }, string.Empty);
+            new NetworkVariableSettings { WritePermission = NetworkVariablePermission.Everyone }, string.Empty);
 
-        Score = new NetworkVariable<ulong>(
-                new NetworkVariableSettings { WritePermission = NetworkVariablePermission.ServerOnly }, 0);
+        Score = new NetworkVariable<int>(
+                new NetworkVariableSettings { WritePermission = NetworkVariablePermission.Everyone }, 0);
 
         Vida = new NetworkVariable<int>(
-               new NetworkVariableSettings { WritePermission = NetworkVariablePermission.ServerOnly }, 2);
+               new NetworkVariableSettings { WritePermission = NetworkVariablePermission.Everyone }, 2);
 
     }
 
@@ -35,6 +39,10 @@ public class PlayerInfo : NetworkBehaviour
 
     public void setNickname(string name)
     {
+        if (!this.IsOwner)
+        {
+            return;
+        }
         this.Nickname.Value = name;
     }
 

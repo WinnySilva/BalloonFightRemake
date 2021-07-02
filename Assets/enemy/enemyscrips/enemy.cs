@@ -8,7 +8,7 @@ using System;
 public class enemy : MonoBehaviour
 {
     public NavMeshAgent nave;
-    public bool caca;
+    public bool cacando;
     public Transform alvo;
     public float speed;
     public Animator anim;
@@ -20,6 +20,9 @@ public class enemy : MonoBehaviour
     private Rigidbody rig;
     private bool groundedPlayer;
     public float gravityValue = -9.81f;
+    public ballon balaoInimigo;
+    public paraquedas paraquedasInimigo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,60 +32,42 @@ public class enemy : MonoBehaviour
         agent.updateUpAxis = false;
         Alvos = GameObject.FindGameObjectsWithTag("caminhoPatrulha");
 
+        balaoInimigo.SemBaloesSobrando += SemBaloesSobrando;
+        paraquedasInimigo.SemParaquedas += SemParaquedas;
         rig = GetComponent<Rigidbody>();
         GeraAlvo();
-        caca = true;
-        NaveHunt(alvo);
+        anim.SetBool("estaChao", true);
+        anim.SetBool("estaPulando", true);       
+        StartCoroutine(this.InicioJogo());
+        
+    }
+    void OnDestroy()
+    {
+        balaoInimigo.SemBaloesSobrando -= SemBaloesSobrando;
+        paraquedasInimigo.SemParaquedas -= SemParaquedas;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (ballon.cair == true)
-        {
-            anim.SetBool("fall", true);
-            StartCoroutine("DestruirInimigo");
-        }
 
-        //OnTriggerS(enemys);
-        OnTriggerEnter(enemys);
-
-
-
-        //if (caca == true)
-        //{
-        //    hunt();
-        //}
-        //else
-        //{
-
-        //    GeraAlvo();
-        //    caca = true;
-        //}
-        if (nave.remainingDistance < 100)
+        if (cacando && nave.remainingDistance < 100)
         {
             GeraAlvo();
             NaveHunt(alvo);
         }
 
-
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Pballon")
-        {
-            alvo = other.transform;
-        }
-    }
+    
 
     void entrada()
     {
-        balloon.SetActive(true);
-        caca = true;
-        nave.GetComponent<NavMeshAgent>().enabled = true;
-        anim.SetBool("fly", true);
+      //  balloon.SetActive(true);
+     //   cacando = true;
+     //   nave.GetComponent<NavMeshAgent>().enabled = true;
+      //  anim.SetBool("fly", true);
     }
     void groundout()
     {
@@ -136,7 +121,7 @@ public class enemy : MonoBehaviour
 
         if (Math.Abs(distanceToTarget) < 100)
         {
-            caca = false;
+            cacando = false;
             return;
         }
 
@@ -156,10 +141,43 @@ public class enemy : MonoBehaviour
         MoveCharacter(actualMovementThisFrame * direction);
     }
 
-    public IEnumerator DestruirInimigo()
+
+    private void SemBaloesSobrando(int pontuacao, ulong clientid)
     {
-        yield return new WaitForSeconds(5);
-        Destroy(this.gameObject);
+        nave.isStopped = true;
+        nave.enabled = false;
+        cacando = false;
+        Destroy(nave);
+        GameController.Instance.Pontuar(pontuacao, clientid);
+        rig.AddForce(new Vector3(0, this.gravityValue * 0.2f), ForceMode.Force);
+        anim.SetBool("fly", false);
+    }
+
+    private void SemParaquedas(int pontuacao, ulong clientid)
+    {
+    //    nave.isStopped = true;
+   //     nave.enabled = false;
+        cacando = false;
+        GameController.Instance.Pontuar(pontuacao, clientid);  
+        rig.AddForce(new Vector3(0, this.gravityValue), ForceMode.Force);
+        anim.SetBool("paraquedas", false);
+        StartCoroutine(Morrer());
+    }
+
+    IEnumerator InicioJogo()
+    {
+        yield return new WaitForSeconds(2);
+        anim.SetBool("estaChao", false);
+        anim.SetBool("estaPulando", false);
+        anim.SetBool("fly", true);
+        cacando = true;
+        NaveHunt(alvo);
+    }
+
+    IEnumerator Morrer()
+    {
+        yield return new WaitForSeconds(3);
+       // Destroy(this.gameObject);
     }
 }
 

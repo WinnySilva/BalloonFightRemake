@@ -1,5 +1,4 @@
 using MLAPI;
-using MLAPI.Prototyping;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,11 +15,12 @@ public class GameController : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
         if (!NetworkManager.Singleton.IsHost)
         {
             return;
         }
-        Instance = this;
+
         jogadores = GameObject.FindGameObjectsWithTag("PlayerInfo");
 
         CarregarPersonagens();
@@ -29,9 +29,68 @@ public class GameController : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!NetworkManager.Singleton.IsHost)
+        {
+            return;
+        }
+        if (!PartidaEmAndamento())
+        {
+            FimDePartida();
+        }
 
     }
 
+    public void Pontuar(int pontuacao, ulong clienteid)
+    {
+        if (!NetworkManager.Singleton.IsHost)
+        {
+            return;
+        }
+
+        foreach (GameObject info in jogadores)
+        {
+            PlayerInfo inf = info.GetComponent<PlayerInfo>();
+            if (inf.OwnerClientId == clienteid)
+            {
+                inf.Score.Value = inf.Score.Value + pontuacao;
+                return;
+            }
+        }
+    }
+
+    public bool PartidaEmAndamento()
+    {
+
+
+        GameObject[] inimigos = GameObject.FindGameObjectsWithTag("atack");
+        if (inimigos.Length == 0)
+        {
+            return false;
+        }
+
+        GameObject[] jogadoresObj = GameObject.FindGameObjectsWithTag("Player");
+        if (jogadoresObj.Length == 0)
+        {
+            return false;
+        }
+        int jogaresFora = 0;
+        foreach (GameObject obj in jogadoresObj)
+        {
+            PlayerMove move = obj.GetComponent<PlayerMove>();
+
+            if (move.gravityValue > 500)
+            {
+                jogaresFora++;
+            }
+
+        }
+        if (jogaresFora == jogadoresObj.Length)
+        {
+            return false;
+        }
+
+        return true;
+    }
 
     void CarregarPersonagens()
     {
@@ -54,5 +113,10 @@ public class GameController : NetworkBehaviour
             }
 
         }
+    }
+
+    void FimDePartida()
+    {
+        NetworkController.Instance.SwitchScene("FimJogo");
     }
 }

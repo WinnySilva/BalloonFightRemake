@@ -32,6 +32,7 @@ public class NetworkController : NetworkBehaviour
     {
         NetworkManager.Singleton.OnServerStarted += OnServerStarted;
         NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnectedCallback;
+        
     }
 
     public void IniciarHost(string nomeSala, string nickname)

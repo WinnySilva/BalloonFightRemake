@@ -16,9 +16,9 @@ public class PlayerMove : NetworkBehaviour
     public GameObject balloon;
     public GameObject balloon2;
     private Rigidbody m_Rigidbody;
+    public PlayerBallon playerBallon;
     public Vector3 move;
     public int Score;
-    public int decaimentoPulo = 1;
     private void Start()
 
     {
@@ -28,8 +28,17 @@ public class PlayerMove : NetworkBehaviour
         }
         controller = gameObject.AddComponent<CharacterController>();
         m_Rigidbody = GetComponent<Rigidbody>();
+
+        playerBallon.UmBalaoSobrando += UmBalaoSobrando;
+        playerBallon.SemBaloesSobrando += SemBaloesSobrando;
+
     }
 
+    void OnDestroy()
+    {
+        playerBallon.UmBalaoSobrando += UmBalaoSobrando;
+        playerBallon.SemBaloesSobrando += SemBaloesSobrando;
+    }
 
     void Update()
     {
@@ -39,10 +48,7 @@ public class PlayerMove : NetworkBehaviour
         }
 
         groundedPlayer = controller.isGrounded;
-        moviment();
-        OnTriggerEnter(player);
-        OnTriggerExit(player);
-        LostBallon();
+        moviment();        
     }
 
     void stopanim()
@@ -56,20 +62,17 @@ public class PlayerMove : NetworkBehaviour
         move = new Vector3(Input.GetAxis("Horizontal"), 0);
 
         controller.Move(move * Time.deltaTime * speed);
-        
-        
+        anim.SetBool("fly", !groundedPlayer);
+        anim.SetBool("grouded", groundedPlayer);
         if (move.x == 0 && groundedPlayer == true)
         {
             anim.SetBool("Horizontal", false);
-            anim.SetBool("grouded", true); 
-          
         }
 
         if (move.x > 0)
         {
             // transform.eulerAngles = new Vector3(transform.eulerAngles.x, -280f, transform.eulerAngles.z);
             anim.SetBool("Horizontal", true);
-
         }
 
         if (move.x < 0)
@@ -88,7 +91,7 @@ public class PlayerMove : NetworkBehaviour
                 anim.SetTrigger("jump");
                 anim.SetBool("Horizontal", false);
                 anim.SetBool("grouded", false);
-                decaimentoPulo = 1;
+               
             }
 
             if (groundedPlayer == false)
@@ -101,7 +104,6 @@ public class PlayerMove : NetworkBehaviour
             }
 
         }
-        
 
         if (move != Vector3.zero)
         {
@@ -129,22 +131,16 @@ public class PlayerMove : NetworkBehaviour
             anim.SetBool("grouded", false);
         }
     }
-
-    void LostBallon()
+ 
+    private void SemBaloesSobrando()
     {
-        if (PlayerBallon.Instance.cair < 2)
-        {
-            balloon.SetActive(false);
+        balloon2.SetActive(false);
+        gravityValue = -10000;
+    }
 
-        }
-
-        if (PlayerBallon.Instance.cair < 1)
-        {
-            balloon2.SetActive(false);
-            gravityValue = -10000;
-            //player.SetActive(false);
-        }
-
+    private void UmBalaoSobrando()
+    {
+        balloon.SetActive(false);
     }
 
 }

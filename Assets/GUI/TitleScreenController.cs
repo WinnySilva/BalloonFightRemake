@@ -15,7 +15,6 @@ public class TitleScreenController : MonoBehaviour
     public void IrParaLobby()
     {
         SceneManager.LoadScene("Lobby",LoadSceneMode.Single);
-
     }
 
 }

@@ -1,46 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!135 &1018260430
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3808827425486705030}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 18
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5273608635796598288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3808827425486705030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 883276ca16c7965499a1c9613382e53a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  balloon: {fileID: 9012089306328905725}
-  parashut: {fileID: 3808827425858374716}
-  pontuacao: 500
---- !u!135 &6610543136589127471
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3808827426658481694}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &260565981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +80,48 @@ MonoBehaviour:
   PrefabHashGenerator: enemy
   AlwaysReplicateAsRoot: 1
   DontDestroyWithOwner: 0
+--- !u!136 &1165357854079051902
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3808827426658481694}
+  m_Material: {fileID: 13400000, guid: 9ddbf5060d873a642b7af2fabbb8e416, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 13.973276
+  m_Height: 82.67519
+  m_Direction: 1
+  m_Center: {x: -0.000000027874894, y: 36.225655, z: 4.439528}
+--- !u!135 &1018260430
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3808827425486705030}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 18
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5273608635796598288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3808827425486705030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 883276ca16c7965499a1c9613382e53a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  balloon: {fileID: 9012089306328905725}
+  parashut: {fileID: 3808827425858374716}
+  pontuacao: 500
 --- !u!135 &146444741
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -132,8 +133,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3
-  m_Center: {x: 0.12, y: 0.39, z: 0.22}
+  m_Radius: 0.31964064
+  m_Center: {x: 0.08588667, y: 0.38999915, z: 0.2199999}
 --- !u!1001 &241202404179764129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -160,6 +161,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: enemy Verde
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000111341508793791, guid: 0304621d0041ab3479c41c49f9c9ad3d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Inimigo
       objectReference: {fileID: 0}
     - target: {fileID: 4270021317408628608, guid: 0304621d0041ab3479c41c49f9c9ad3d,
         type: 3}
@@ -361,6 +367,11 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 9af0cdb5c9ff90f45ab920ab62eb4407, type: 3}
+    - target: {fileID: 8018233556749062548, guid: 0304621d0041ab3479c41c49f9c9ad3d,
+        type: 3}
+      propertyPath: m_TagString
+      value: atack
+      objectReference: {fileID: 0}
     - target: {fileID: 9100001570343244892, guid: 0304621d0041ab3479c41c49f9c9ad3d,
         type: 3}
       propertyPath: m_IsActive

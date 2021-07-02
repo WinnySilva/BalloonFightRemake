@@ -19,7 +19,6 @@ public class PlayerNet : NetworkBehaviour
         NetworkObject no = GetComponent<NetworkObject>();
         SceneManager.sceneLoaded += OnSceneLoad;
 
-
     }
 
     void OnSceneLoad(Scene cena, LoadSceneMode mode)

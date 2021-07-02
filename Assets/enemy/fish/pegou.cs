@@ -18,11 +18,7 @@ public class pegou : MonoBehaviour
     void Update()
     {
 
-        OnTriggerEnter(take);
-
-
     }
-
 
     void OnTriggerEnter(Collider player)
     {
@@ -31,12 +27,11 @@ public class pegou : MonoBehaviour
         {
 
             //player.transform.SetParent(peixe.transform);
-            player.transform.parent = peixe.transform;
-            player.GetComponent<PlayerMove>().enabled = false;
+            player.transform.parent = peixe.transform;          
             anim.SetBool("aparece", false);
-            player.GetComponent<Animator>().SetBool("fall",true);
-            player.GetComponent<PlayerBallon>().cair = -2;
 
+            PlayerMovement pm = player.gameObject.GetComponent<PlayerMovement>();
+            pm.PegoPeloPeixe();
             //anim.SetBool("volta");
             //peixe.SetActive(true);
             // peixe.anim.SetBool("olhar", false);

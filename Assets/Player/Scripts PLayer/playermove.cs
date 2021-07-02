@@ -26,9 +26,10 @@ public class PlayerMove : NetworkBehaviour
         {
             return;
         }
-        controller = gameObject.AddComponent<CharacterController>();
+        controller = GetComponent<CharacterController>();
         m_Rigidbody = GetComponent<Rigidbody>();
 
+        controller.enabled = true;
         playerBallon.UmBalaoSobrando += UmBalaoSobrando;
         playerBallon.SemBaloesSobrando += SemBaloesSobrando;
 
@@ -144,6 +145,3 @@ public class PlayerMove : NetworkBehaviour
     }
 
 }
-
-
-

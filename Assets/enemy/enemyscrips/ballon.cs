@@ -33,6 +33,7 @@ public class ballon : MonoBehaviour
             balloon.SetActive(false);           
             parashut.SetActive(true);            
             SemBaloesSobrando?.Invoke(pontuacao, clientid);
+            Destroy(this);
         }
 
     }

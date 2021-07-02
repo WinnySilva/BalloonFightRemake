@@ -32,6 +32,7 @@ public class paraquedas : MonoBehaviour
             ulong clientid = player.GetComponent<NetworkObject>().OwnerClientId;
             parashut.SetActive(false);
             SemParaquedas?.Invoke(pontuacao, clientid);
+            Destroy(this);
         }
 
     }

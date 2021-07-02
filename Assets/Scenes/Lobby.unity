@@ -509,7 +509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &514034108
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3112,8 +3112,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6645227206880709492, guid: 263002b65588bd24b9482ea57bd17eb9,
         type: 3}
+      propertyPath: LogLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6645227206880709492, guid: 263002b65588bd24b9482ea57bd17eb9,
+        type: 3}
       propertyPath: NetworkConfig.EnableTimeResync
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6645227206880709492, guid: 263002b65588bd24b9482ea57bd17eb9,
+        type: 3}
+      propertyPath: NetworkConfig.RecycleNetworkIds
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6645227206880709492, guid: 263002b65588bd24b9482ea57bd17eb9,
         type: 3}

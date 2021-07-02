@@ -76,9 +76,9 @@ public class GameController : NetworkBehaviour
         int jogaresFora = 0;
         foreach (GameObject obj in jogadoresObj)
         {
-            PlayerMove move = obj.GetComponent<PlayerMove>();
+            PlayerMovement move = obj.GetComponent<PlayerMovement>();
 
-            if (move.gravityValue > 500)
+            if (move.EstaMorto.Value)
             {
                 jogaresFora++;
             }

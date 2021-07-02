@@ -159,7 +159,7 @@ public class enemy : MonoBehaviour
    //     nave.enabled = false;
         cacando = false;
         GameController.Instance.Pontuar(pontuacao, clientid);  
-        rig.AddForce(new Vector3(0, this.gravityValue), ForceMode.Force);
+        rig.AddForce(new Vector3(0, this.gravityValue*5), ForceMode.Impulse);
         anim.SetBool("paraquedas", false);
         StartCoroutine(Morrer());
     }
@@ -177,7 +177,7 @@ public class enemy : MonoBehaviour
     IEnumerator Morrer()
     {
         yield return new WaitForSeconds(3);
-       // Destroy(this.gameObject);
+        Destroy(this.gameObject);
     }
 }
 

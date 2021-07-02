@@ -12,22 +12,6 @@ public class PlayerBallon : MonoBehaviour
     public Collider act;
 
     public int cair = 2;
-    // Start is called before the first frame update
-    private void Awake()
-    {
-
-    }
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 
     void OnTriggerEnter(Collider player)
     {
@@ -51,8 +35,5 @@ public class PlayerBallon : MonoBehaviour
         }
 
     }
-
-
-
 
 }

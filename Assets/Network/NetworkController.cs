@@ -1,4 +1,5 @@
 ﻿using MLAPI;
+using MLAPI.Connection;
 using MLAPI.SceneManagement;
 using MLAPI.Transports.PhotonRealtime;
 using Photon.Realtime;
@@ -32,7 +33,7 @@ public class NetworkController : NetworkBehaviour
     {
         NetworkManager.Singleton.OnServerStarted += OnServerStarted;
         NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnectedCallback;
-        
+        NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnectCallback;
     }
 
     public void IniciarHost(string nomeSala, string nickname)
@@ -74,8 +75,7 @@ public class NetworkController : NetworkBehaviour
     public void Desconectar()
     {
         if (NetworkManager.Singleton.IsHost)
-        {
-            //    NetworkManager.Singleton.DisconnectClient(id_jogador_dois);
+        {                   
             NetworkManager.Singleton.StopHost();
         }
         else if (NetworkManager.Singleton.IsClient)

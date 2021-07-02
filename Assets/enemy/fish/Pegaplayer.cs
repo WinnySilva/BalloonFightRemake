@@ -22,104 +22,76 @@ public class Pegaplayer : MonoBehaviour
     void Update()
     {
 
-       
-        if (caca == true) {
+
+        if (caca == true)
+        {
 
             hunt();
         }
 
     }
 
-    
-        
-        
+    void MoveCharacter(Vector3 frameMovement)
+    {
+        transform.position += frameMovement;
+    }
+    void OnTriggerExit(Collider player)
+    {
 
-      
-
-
-
-
-        
-
-
-        
-          
-        
-        
-
-        
-
-        
-    
-        void MoveCharacter(Vector3 frameMovement)
-        {
-    transform.position += frameMovement;
-        }
-        void OnTriggerExit(Collider player)
+        if (player.gameObject.tag == "Player")
         {
 
-            if (player.gameObject.tag == "Player")
-            {
 
-
-                anim.SetBool("aparece", false);
+            anim.SetBool("aparece", false);
             alvo = null;
             caca = false;
-                //peixe.SetActive(true);
-                // peixe.anim.SetBool("olhar", false);
-            }
-
-
-
-            if (player.gameObject.tag == "Enemy")
-            {
-
-
-                anim.SetBool("aparece", false);
-
-                //peixe.SetActive(true);
-                // peixe.anim.SetBool("olhar", false);
-            }
-
-
-
+            //peixe.SetActive(true);
+            // peixe.anim.SetBool("olhar", false);
+            PlayerMovement pm = player.gameObject.GetComponent<PlayerMovement>();
+            pm.PegoPeloPeixe();
         }
+
+
+
+        if (player.gameObject.tag == "Enemy")
+        {
+
+
+            anim.SetBool("aparece", false);
+
+            //peixe.SetActive(true);
+            // peixe.anim.SetBool("olhar", false);
+        }
+
+
+
+    }
 
     void hunt()   // caça o inimigo
     {
         Vector3 direction = alvo.position - transform.position;
 
         direction.y = 0;
-        
+
         float distanceToTarget = direction.magnitude;
-        
-        
+
+
         direction.Normalize();
 
-        
+
 
 
         if (direction.x > 0)
         {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x,  -280f, transform.eulerAngles.z);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, -280f, transform.eulerAngles.z);
         }
         if (direction.x < 0)
         {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, 280f , transform.eulerAngles.z);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, 280f, transform.eulerAngles.z);
         }
-    
 
 
-
-
-
-
-
-
-
-
-
-float distanceWantsToMoveThisFrame = 10000f * Time.deltaTime;
+        float distanceWantsToMoveThisFrame = 10000f * Time.deltaTime;
         float actualMovementThisFrame = Mathf.Min(Mathf.Abs(distanceToTarget - 1), distanceWantsToMoveThisFrame);
 
         MoveCharacter(actualMovementThisFrame * direction);

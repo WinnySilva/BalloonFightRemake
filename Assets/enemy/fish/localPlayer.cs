@@ -21,11 +21,7 @@ public class localPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        OnTriggerEnter(intercept);
-        OnTriggerExit(intercept);
       
-
     }
 
     void OnTriggerEnter(Collider player)
@@ -35,19 +31,14 @@ public class localPlayer : MonoBehaviour
         {
 
 
-           peixe.GetComponent<Animator>().SetBool("aparece", true);
+         peixe.GetComponent<Animator>().SetBool("aparece", true);
             peixe.GetComponent<Pegaplayer>().alvo = player.transform;
             peixe.GetComponent<Pegaplayer>().caca = true;
             //peixe.SetActive(true);
             // peixe.anim.SetBool("olhar", false);
+            
 
-           
         }
-
-
-
-
-
 
         if (player.gameObject.tag == "Enemy")
         {
@@ -57,7 +48,7 @@ public class localPlayer : MonoBehaviour
             peixe.GetComponent<Pegaplayer>().alvo = player.transform;
             peixe.GetComponent<Pegaplayer>().caca = false;
         
-    }
+    } 
 
     }
 

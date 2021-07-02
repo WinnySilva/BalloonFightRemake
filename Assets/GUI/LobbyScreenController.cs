@@ -33,6 +33,7 @@ public class LobbyScreenController : NetworkBehaviour
     {
         NetworkController.ServerStarted -= ServerStarted;
         NetworkController.ClientConected -= ConectadoComoCliente;
+        NetworkController.ClientDisconected -= ClientDisconectado;
     }
 
     public void IniciarHost()
@@ -98,7 +99,7 @@ public class LobbyScreenController : NetworkBehaviour
     public void Desconectar()
     {
         NetworkController.Instance.Desconectar();
-        this.sala.text = string.Empty;
+        jogadoresConectados.text = string.Empty;
         iniciarPartida.SetActive(false);
         aguardeMsg.SetActive(false);
         infoConexao.SetActive(true);
@@ -159,15 +160,12 @@ public class LobbyScreenController : NetworkBehaviour
 
     private void ClientDisconectado(ulong id)
     {
-        this.sala.text = string.Empty;
-        if (NetworkManager.Singleton.IsHost)
-        {
-            StartCoroutine(AtualizaTela());
-        }
-        else
-        {
-            SceneManager.LoadScene("Lobby", LoadSceneMode.Single);
-        }
+        NetworkController.Instance.Desconectar();
+        jogadoresConectados.text = string.Empty;
+        iniciarPartida.SetActive(false);
+        aguardeMsg.SetActive(false);
+        infoConexao.SetActive(true);
+        btnDesconectar.SetActive(false);
 
     }
 

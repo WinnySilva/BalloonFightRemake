@@ -172,7 +172,7 @@ MonoBehaviour:
   PrefabHash: 14896386243554414727
   PrefabHashGenerator: Jogador
   AlwaysReplicateAsRoot: 0
-  DontDestroyWithOwner: 0
+  DontDestroyWithOwner: 1
 --- !u!114 &5258262686353433745
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -37,7 +37,7 @@ public class PlayerMovement : NetworkBehaviour
         this.m_Rigidbody.AddForce(new Vector3(0, this.gravityValue), ForceMode.Force);
         groundedPlayer = true;
         EstaMorto = new NetworkVariable<bool>(
-                new NetworkVariableSettings { WritePermission = NetworkVariablePermission.Everyone}, false);
+                new NetworkVariableSettings { WritePermission = NetworkVariablePermission.Everyone }, false);
 
         EstaMorto.Value = false;
     }
@@ -128,7 +128,7 @@ public class PlayerMovement : NetworkBehaviour
         }
         float horizontal = Input.GetAxis("Horizontal");
         bool jump = Input.GetButtonDown("Jump");
-               
+
         Vector3 novaForca = new Vector3(0, 0, 0);
 
         if (horizontal != 0)
@@ -205,7 +205,7 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (col.gameObject.tag == "ground")
         {
-           // anim.SetBool("grouded", true);
+            // anim.SetBool("grouded", true);
             groundedPlayer = true;
         }
     }
@@ -215,8 +215,8 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (col.gameObject.tag == "ground")
         {
-      //      anim.SetBool("grouded", false);
-             groundedPlayer = false;
+            //      anim.SetBool("grouded", false);
+            groundedPlayer = false;
         }
     }
 
@@ -241,6 +241,10 @@ public class PlayerMovement : NetworkBehaviour
     IEnumerator Morrer()
     {
         yield return new WaitForSeconds(0.5f);
-        EstaMorto.Value = true;
+        if (IsOwner)
+        {
+            EstaMorto.Value = true;
+        }
+
     }
 }

@@ -104,12 +104,12 @@ public class GameController : NetworkBehaviour
             if (info.IsOwner)
             {
                 novo = Instantiate(prefabJogadorUm, pos, Quaternion.identity);
-                novo.GetComponent<NetworkObject>().SpawnAsPlayerObject(info.OwnerClientId);
+                novo.GetComponent<NetworkObject>().SpawnWithOwnership(info.OwnerClientId);
             }
             else
             {
                 novo = Instantiate(prefabJogadorDois, pos, Quaternion.identity);
-                novo.GetComponent<NetworkObject>().SpawnAsPlayerObject(info.OwnerClientId);
+                novo.GetComponent<NetworkObject>().SpawnWithOwnership(info.OwnerClientId);
             }
 
         }

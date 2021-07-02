@@ -70,6 +70,7 @@ MonoBehaviour:
     - SampleScene
     - SampleScene_net
     - 
+    - Fase_01
     AllowRuntimeSceneChanges: 0
     NetworkPrefabs:
     - Prefab: {fileID: 3412968264038166943, guid: d7cb109bdb644994b8926bff1144ff84,

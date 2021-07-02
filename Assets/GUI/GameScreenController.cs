@@ -21,11 +21,12 @@ public class GameScreenController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        NetworkController.ClientDisconected += OnDisconect;
         this.jogadorUm_Nick.gameObject.SetActive(false);
         this.jogadorUm_Score.gameObject.SetActive(false);
         this.jogadorDois_Nick.gameObject.SetActive(false);
         this.jogadorDois_Score.gameObject.SetActive(false);
-        NetworkController.ClientDisconected += OnDisconect;
+        
         GameObject[] jogadores = GameObject.FindGameObjectsWithTag("PlayerInfo");
         foreach (GameObject go in jogadores)
         {
@@ -53,6 +54,10 @@ public class GameScreenController : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        NetworkController.ClientDisconected -= OnDisconect;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -75,11 +80,7 @@ public class GameScreenController : MonoBehaviour
 
     public void OnDisconect(ulong id)
     {
-        if (NetworkManager.Singleton.IsHost)
-        {
-            NetworkManager.Singleton.StopHost();
-        }
-
+        NetworkController.Instance.Desconectar();
         SceneManager.LoadScene("Lobby", LoadSceneMode.Single);
     }
 
